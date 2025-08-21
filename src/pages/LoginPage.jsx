@@ -52,7 +52,6 @@ export default function LoginPage() {
                                             <p className="text-[64px] ">W O R K O U T  G A M I F I E D W O R K</p>
                                             <p className="text-sm text-gray-500 text-center">Login to continue to WorkOutGamified</p>
 
-                                            {/* Email Field */}
                                             <div>
                                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                                     Email
@@ -67,7 +66,6 @@ export default function LoginPage() {
                                                 <ErrorMessage name="email" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
 
-                                            {/* Password Field */}
                                             <div>
                                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                                                     Password
@@ -82,18 +80,17 @@ export default function LoginPage() {
                                                 <ErrorMessage name="password" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
 
-                                            {/* Buttons */}
                                             <div className="space-y-3">
                                                 <button
                                                     type="submit"
-                                                    className="w-full cursor-pointer rounded-md bg-[#0088ff] px-4 py-2 text-white font-medium shadow hover:bg-[#0088ff]"
+                                                    className="w-full cursor-pointer rounded-md bg-[#282828] px-4 py-2 text-white font-medium shadow hover:bg-[#4d4d4d]"
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Log In
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="w-full cursor-pointer rounded-md bg-gray-100 px-4 py-2 text-gray-800 font-medium shadow hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                                    className="w-full cursor-pointer rounded-md bg-[#FEFEFE] px-4 py-2 text-gray-800 font-medium shadow hover:bg-[#bdbdbd]"
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Register
