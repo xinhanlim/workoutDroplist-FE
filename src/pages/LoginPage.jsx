@@ -84,14 +84,14 @@ export default function LoginPage() {
                                             <div className="space-y-3">
                                                 <button
                                                     type="submit"
-                                                    className="w-full cursor-pointer rounded-md bg-[#282828] px-4 py-2 text-white font-medium shadow hover:bg-[#4d4d4d]"
+                                                    className="w-full cursor-pointer rounded-md bg-[#282828] px-4 py-2 text-[#F5F5F7] font-medium shadow hover:bg-[#4d4d4d]"
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Log In
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="w-full cursor-pointer rounded-md bg-[#FEFEFE] px-4 py-2 text-gray-800 font-medium shadow hover:bg-[#bdbdbd]"
+                                                    className="w-full cursor-pointer rounded-md bg-[##F5F5F7] px-4 py-2 text-[#282828] font-medium shadow hover:bg-[#bdbdbd]"
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Register

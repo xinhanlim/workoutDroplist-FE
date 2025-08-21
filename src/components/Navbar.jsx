@@ -9,9 +9,9 @@ export default function Navbar() {
                 <div className="">
                     <h1 className="text-xl font-bold ">WOUTG</h1>
                 </div>
-                    <div className="flex gap-4 bg-[#007AFF] text-[#F5F5F7] rounded-lg ">
+                    <div className="flex gap-4 bg-[#282828]  rounded-lg hover:bg-[#4d4d4d] ">
                         <button className=" text-md text px-4 py-2" type="submit">
-                            <Link href="/api/users/login" className={`${location === '/api/users/login' ? 'active' : ''}`}>Login/Register</Link>
+                            <Link href="/api/users/login" className={`text-[#F5F5F7] ${location === '/api/users/login' ? 'active' : ''}`}>Login/Register</Link>
                         </button>
                     </div>
                 </div>
