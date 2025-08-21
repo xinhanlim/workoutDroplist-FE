@@ -24,6 +24,7 @@ export default function LoginPage() {
         try {
             const response = await axios.post(import.meta.env.BE_API_URL + '/api/users/login', values)
             console.log(response.data);
+            setLocation('/')
             const token = response.data.token;
             setJwt(token);
         } catch (e) {
