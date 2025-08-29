@@ -6,9 +6,10 @@ import { useLocation } from 'wouter'
 import useJwt from '../ultis/UserStore'
 import axios from 'axios';
 
+
 export default function LoginPage() {
 
-    const [location, setLocation] = useLocation();
+    const [_, setLocation] = useLocation();
     const { setJwt } = useJwt();
     const initalValues = {
         "email": "",
@@ -22,13 +23,14 @@ export default function LoginPage() {
 
     const handleSubmit = async (values, formikHelpers) => {
         try {
-            const response = await axios.post(import.meta.env.BE_API_URL + '/api/users/login', values)
+            const apiUrl = import.meta.env.VITE_API_URL;
+            const response = await axios.post(apiUrl + '/api/users/login', values)
+            console.log(values);
             console.log(response.data);
             setLocation('/')
             const token = response.data.token;
             setJwt(token);
         } catch (e) {
-            showMessage("Error logging in!");
             console.error(e);
         } finally {
             formikHelpers.setSubmitting(false);
@@ -36,7 +38,7 @@ export default function LoginPage() {
     }
 
     return (
-        < div className="bg-[#F5F5F7]">
+        <div className="bg-[#F5F5F7]">
             <NavbarWithoutLogin />
             <div className="my-auto" >
                 <div className=" flex mx-auto my-auto h-screen items-center justify-center">
@@ -44,7 +46,7 @@ export default function LoginPage() {
                         <Formik
                             initialValues={initalValues}
                             validationSchema={validationSchema}
-                            onsubmit={handleSubmit}
+                            onSubmit={handleSubmit}
                         >
                             {
                                 function (formik) {
@@ -91,14 +93,13 @@ export default function LoginPage() {
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="w-full cursor-pointer rounded-md bg-[##F5F5F7] px-4 py-2 text-[#282828] font-medium shadow hover:bg-[#bdbdbd]"
+                                                    className="w-full cursor-pointer rounded-md bg-[#F5F5F7] px-4 py-2 text-[#282828] font-medium shadow hover:bg-[#bdbdbd]"
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Register
                                                 </button>
                                             </div>
                                         </Form>
-
                                     )
                                 }
                             }
