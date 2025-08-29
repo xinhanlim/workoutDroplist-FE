@@ -94,6 +94,7 @@ export default function LoginPage() {
                                                 <button
                                                     type="button"
                                                     className="w-full cursor-pointer rounded-md bg-[#F5F5F7] px-4 py-2 text-[#282828] font-medium shadow hover:bg-[#bdbdbd]"
+                                                    onClick={() => setLocation('/api/users/register')}
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Register

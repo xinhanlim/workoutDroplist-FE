@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage'
 import { Route, Switch } from 'wouter';
 import Homepage from './pages/Homepage';
 
@@ -9,6 +10,7 @@ export default function App(){
   <Switch>
     <Route path='/' component={Homepage}/>
     <Route path="/api/users/login" component={LoginPage} />
+    <Route path="/api/users/register" component={RegisterPage} />
   </Switch>
   </>)
 }

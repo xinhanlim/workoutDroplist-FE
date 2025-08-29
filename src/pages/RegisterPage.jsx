@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 
-export default function ProfilePage(){
+export default function RegisterPage(){
     return (
         <>
         <Navbar/>
