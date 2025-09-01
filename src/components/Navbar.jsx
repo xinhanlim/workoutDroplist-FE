@@ -1,20 +1,27 @@
-import React from 'react'
+import React, {useState } from 'react'
 import { Link, useLocation } from 'wouter'
+import useJwt from '../utils/UserStore'
 
 
 export default function Navbar() {
+
+    const [location,setLocation] = useLocation();
+    const { getJwt, clearJwt } = useJwt();
+    const jwt = getJwt();
+    // navbar so when login want the login/regiser button to dissappear
+    // when profile page, login/register page dissappear, but with a hello id - tag to a jwt for security?
+    //condition rendering vs state management?
+
     return (
         <>
             <div className="fixed top-0 left-0 flex w-screen items-center justify-between px-4 py-4 bg-[#F5F5F7]">
-                <div className="">
-                    <h1 className="text-xl font-bold ">WOUTG</h1>
-                </div>
-                    <div className="flex gap-4 bg-[#282828]  rounded-lg hover:bg-[#4d4d4d] ">
-                        <button className=" text-md text px-4 py-2" type="submit">
-                            <Link href="/api/users/login" className={`text-[#F5F5F7] ${location === '/api/users/login' ? 'active' : ''}`}>Login/Register</Link>
-                        </button>
-                    </div>
-                </div>
+                <h1 className="text-xl font-bold "><Link href="/">WOUTG</Link></h1>
+                        <div className="flex gap-4 bg-[#282828] rounded-lg hover:bg-[#4d4d4d] ">
+                            <button className=" text-md text px-4 py-2" type="submit">
+                                <Link href="/api/users/login" className="text-[#F5F5F7]">Login/Register</Link>
+                            </button>
+                        </div>
+            </div>
         </>
     )
 }

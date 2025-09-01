@@ -3,7 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useLocation } from 'wouter';
 import axios from 'axios';
-import NavbarWithoutLogin from '../components/NavbarWithoutLogin';
+import Navbar from '../components/Navbar';
 
 export default function RegisterPage() {
 
@@ -37,7 +37,7 @@ export default function RegisterPage() {
         try {
             const response = await axios.post(import.meta.env.VITE_API_URL + '/api/users/register', values);
             if (response.status == 200) {
-                setLocation("/");
+                setLocation("/api/users/login");
             }
         } catch (e) {
             console.log(e);
@@ -47,7 +47,7 @@ export default function RegisterPage() {
     }
     return (
         <>
-            <NavbarWithoutLogin />
+            <Navbar/>
             <div className="bg-[#F5F5F7] my-auto">
                 <div className="my-auto" >
                     <div className=" flex mx-auto my-auto h-screen justify-center">

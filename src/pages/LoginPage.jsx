@@ -1,9 +1,9 @@
 import React from 'react';
-import NavbarWithoutLogin from "../components/NavbarWithoutLogin";
-import { Formik, Form, Field, ErrorMessage, validateYupSchema } from 'formik';
+import Navbar from "../components/Navbar";
+import { Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { useLocation } from 'wouter'
-import useJwt from '../ultis/UserStore'
+import useJwt from '../utils/UserStore'
 import axios from 'axios';
 
 
@@ -17,8 +17,8 @@ export default function LoginPage() {
     }
 
     const validationSchema = Yup.object({
-        email: Yup.string().email().required(),
-        password: Yup.string().required()
+        email: Yup.string().email("Invalid email").required("Email is required"),
+        password: Yup.string("").required("Password is required")
     })
 
     const handleSubmit = async (values, formikHelpers) => {
@@ -27,7 +27,7 @@ export default function LoginPage() {
             const response = await axios.post(apiUrl + '/api/users/login', values)
             console.log(values);
             console.log(response.data);
-            setLocation('/')
+            setLocation('/api/users/profile')
             const token = response.data.token;
             setJwt(token);
         } catch (e) {
@@ -39,9 +39,9 @@ export default function LoginPage() {
 
     return (
         <div className="bg-[#F5F5F7]">
-            <NavbarWithoutLogin />
+            <Navbar/>
             <div className="my-auto" >
-                <div className=" flex mx-auto my-auto h-screen items-center justify-center">
+                <div className=" flex mx-auto items-center justify-center">
                     <div className="flex gap-4">
                         <Formik
                             initialValues={initalValues}
