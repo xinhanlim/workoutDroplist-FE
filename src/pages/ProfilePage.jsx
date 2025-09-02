@@ -6,7 +6,7 @@ export default function ProfilePage(){
         <>
         <Navbar/>
         <div className="bg-[#F5F5F7] h-screen">
-
+        
         </div>
         </>
     )

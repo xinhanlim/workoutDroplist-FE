@@ -15,6 +15,7 @@ export default function useJwt(){
         if(storedJwt && !jwt) {
             setJwtAtom(storedJwt)
         }
+        return jwt || storedJwt
     }
 
     const clearJwt = () => {

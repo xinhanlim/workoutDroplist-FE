@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { useLocation } from 'wouter'
-import useJwt from '../utils/UserStore'
+import {useJwt} from '../utils/UserStore'
 import axios from 'axios';
 
 
