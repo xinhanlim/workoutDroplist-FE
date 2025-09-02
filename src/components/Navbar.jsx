@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'wouter'
 import useJwt from '../utils/UserStore'
+import { toast } from 'react-toastify'
 
 
 export default function Navbar() {
@@ -15,6 +16,7 @@ export default function Navbar() {
     const handleLogout = () => {
         clearJwt(),
             setLocation('/')
+            toast.info("You Have Logout Successfully")
     }
 
     return (
