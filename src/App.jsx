@@ -4,20 +4,20 @@ import RegisterPage from './pages/RegisterPage'
 import { Route, Switch } from 'wouter';
 import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
-import { ToastContainer , Zoom} from 'react-toastify';
+import { ToastContainer, Zoom } from 'react-toastify';
 
 export default function App() {
   return (<>
     <ToastContainer
       position="top-center"
-      autoClose={1000}
+      autoClose={1800}
       hideProgressBar
       newestOnTop={false}
       closeOnClick={false}
       rtl={false}
       pauseOnFocusLoss
       draggable
-      pauseOnHover={false}
+      pauseOnHover
       theme="dark"
       transition={Zoom}
     />
