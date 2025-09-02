@@ -1,24 +1,25 @@
-import React from 'react';
+import React , { useState } from 'react';
 import Navbar from "../components/Navbar";
 import { Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { useLocation } from 'wouter'
-import {useJwt} from '../utils/UserStore'
+import useJwt from '../utils/UserStore'
 import axios from 'axios';
+import { toast } from 'react-toastify'
 
 
 export default function LoginPage() {
 
     const [_, setLocation] = useLocation();
     const { setJwt } = useJwt();
-    const initalValues = {
+    const initialValues = {
         "email": "",
         "password": ""
     }
-
+ 
     const validationSchema = Yup.object({
         email: Yup.string().email("Invalid email").required("Email is required"),
-        password: Yup.string("").required("Password is required")
+        password: Yup.string().required("Password is required")
     })
 
     const handleSubmit = async (values, formikHelpers) => {
@@ -30,8 +31,11 @@ export default function LoginPage() {
             setLocation('/api/users/profile')
             const token = response.data.token;
             setJwt(token);
+            toast.success('Signed In Successfully');
         } catch (e) {
             console.error(e);
+            toast.warn("Invaild Email or Password")
+
         } finally {
             formikHelpers.setSubmitting(false);
         }
@@ -44,7 +48,7 @@ export default function LoginPage() {
                 <div className=" flex mx-auto items-center justify-center">
                     <div className="flex gap-4">
                         <Formik
-                            initialValues={initalValues}
+                            initialValues={initialValues}
                             validationSchema={validationSchema}
                             onSubmit={handleSubmit}
                         >
@@ -64,7 +68,7 @@ export default function LoginPage() {
                                                     id="email"
                                                     name="email"
                                                     placeholder="you@example.com"
-                                                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-[#282828]-500 focus:ring-[#282828]-500 sm:text-sm"
                                                 />
                                                 <ErrorMessage name="email" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
