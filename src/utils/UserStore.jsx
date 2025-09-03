@@ -1,8 +1,8 @@
 import { atom, useAtom } from 'jotai'
-
+import { jwtDecode } from 'jwt-decode';
 const jwtAtom = atom('');
 
-export default function useJwt(){
+export default function useJwt() {
     const [jwt, setJwtAtom] = useAtom(jwtAtom)
 
     const setJwt = (newJwt) => {
@@ -12,7 +12,7 @@ export default function useJwt(){
 
     const getJwt = () => {
         const storedJwt = localStorage.getItem('jwt');
-        if(storedJwt && !jwt) {
+        if (storedJwt && !jwt) {
             setJwtAtom(storedJwt)
         }
         return jwt || storedJwt
@@ -23,5 +23,16 @@ export default function useJwt(){
         setJwtAtom(null);
     }
 
-    return { setJwt, getJwt, clearJwt };
+    const decodeJwtDisplayName = () => {
+        const token = localStorage.getItem('jwt');
+        const decoded = token ? jwtDecode(token) : null;
+        const displayName = decoded?.displayName;
+
+        return displayName
+            .split(" ")
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+    }
+
+    return { setJwt, getJwt, clearJwt, decodeJwtDisplayName };
 }

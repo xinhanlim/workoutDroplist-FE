@@ -50,7 +50,7 @@ export default function RegisterPage() {
             <Navbar/>
             <div className="bg-[#F5F5F7] my-auto">
                 <div className="my-auto" >
-                    <div className=" flex mx-auto my-auto h-screen justify-center">
+                    <div className=" flex mx-auto my-auto justify-center">
                         <div className="flex gap-4"></div>
                         <Formik
                             initialValues={initialValues}
