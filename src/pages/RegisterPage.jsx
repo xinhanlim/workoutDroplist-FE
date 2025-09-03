@@ -65,22 +65,22 @@ export default function RegisterPage() {
                                     </div>
 
                                     <div>
-                                        <label htmlFor="displayName" className="block text-sm font-medium text-gray-700" >Display Name:</label>
+                                        <label htmlFor="displayName" className="block text-sm font-medium text-[#4d4d4d]" >Display Name:</label>
                                         <Field type="text" id="displayName" name="displayName" className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                         {formik.errors.displayName && formik.touched.displayName && <div className="text-sm text-red-600">{formik.errors.displayName}</div>}
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700">Email:</label>
+                                        <label className="block text-sm font-medium text-[#4d4d4d]">Email:</label>
                                         <Field type="email" id="email" name="email" className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                         {formik.errors.email && formik.touched.email && <div className="text-sm text-red-600">{formik.errors.email}</div>}
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700">Password:</label>
+                                        <label className="block text-sm font-medium text-[#4d4d4d]">Password:</label>
                                         <Field type="password" id="password" name="password" className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                         {formik.errors.password && formik.touched.password &&  <div className="text-sm text-red-600">{formik.errors.password}</div>}
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700" >Confirm Password:</label>
+                                        <label className="block text-sm font-medium text-[#4d4d4d]" >Confirm Password:</label>
                                         <Field type="password" id="confirmPassword" name="confirmPassword" className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
                                         {formik.errors.confirmPassword && formik.touched.confirmPassword && <div className="text-sm text-red-600">{formik.errors.confirmPassword}</div>}
                                     </div>
