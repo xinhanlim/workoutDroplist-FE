@@ -82,7 +82,7 @@ export default function LoginPage() {
                                                     id="password"
                                                     name="password"
                                                     placeholder="••••••••"
-                                                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-[#282828] placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                                 />
                                                 <ErrorMessage name="password" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
