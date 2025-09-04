@@ -22,7 +22,7 @@ export default function Navbar() {
     return (
         <>
             {jwt ? (
-                <div className="fixed top-0 left-0 flex w-screen items-center justify-between px-4 py-4 bg-[#F5F5F7]">
+                <div className="fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
                     <h1 className="text-xl font-bold "><Link href="/">WOUTG</Link></h1>
                     <div className="flex gap-4 bg-[#282828] rounded-lg hover:bg-[#4d4d4d] ">
                         <button className=" text-md text px-4 py-2" type="submit">
@@ -31,7 +31,7 @@ export default function Navbar() {
                     </div>
                 </div>
             ) : (
-                <div className="fixed top-0 left-0 flex w-screen items-center justify-between px-4 py-4 bg-[#F5F5F7]">
+                <div className="fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
                     <h1 className="text-xl font-bold "><Link href="/">WOUTG</Link ></h1 >
                     <div className="flex gap-4 bg-[#282828] rounded-lg hover:bg-[#4d4d4d] ">
                         <button className=" text-md text px-4 py-2" type="submit">
