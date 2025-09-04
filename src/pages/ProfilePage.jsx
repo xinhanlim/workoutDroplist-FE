@@ -18,12 +18,9 @@ export default function ProfilePage() {
             <Navbar />
             <div className="bg-[#F5F5F7] h-screen">
                 <div className="bg-[#F5F5F7] py-[72px] h-screen">
-                    <div className="py-4 px-6 my-4 mx-4 min-w-[360px] max-w-[500px] min-h-[300px] max-h-[600px] border-2 rounded-lg border-gray-200 shadow-sm ">
-                            <h1 className="text-4xl text-bold text-[#282828]">Hello {displayName}!</h1>
-                            <h1 className="text-4xl pt-4 text-gray-400 ">"<QuoteOfTheDay />"</h1>
-
-
-
+                    <div className="py-2 px-4 my-4 mx-4 min-w-[360px] min-h-[200px] max-w-[360px] max-h-[500px] sm:max-w-none sm:px-8">
+                            <h1 className="text-5xl text-bold text-[#282828]">- Hello {displayName}!</h1>
+                            <h1 className="text-5xl pt-2 text-gray-400 ">"<QuoteOfTheDay />"</h1>
                     </div>
 
                 </div>
