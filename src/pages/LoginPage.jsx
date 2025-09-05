@@ -42,10 +42,10 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="bg-[#F5F5F7]">
+        <div className="bg-[#F5F5F7] ">
             <Navbar/>
             <div className="my-auto" >
-                <div className=" flex mx-auto items-center justify-center">
+                <div className=" flex mx-auto items-center justify-center h-screen">
                     <div className="flex gap-4">
                         <Formik
                             initialValues={initialValues}
