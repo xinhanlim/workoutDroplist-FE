@@ -26,7 +26,7 @@ export default function Navbar() {
                     <Link className="text-xl font-bold"href="/api/users/profile">WOUTG</Link>
                     <div className="flex gap-8 items-center">
                         <Link className="text-md "href="/api/users/profile">Overview</Link>
-                        <button className=" gap-4 bg-[#282828] rounded-lg hover:bg-[#4d4d4d] text-md text px-4 py-2" type="submit">
+                        <button className=" gap-4 bg-[#282828]  hover:bg-[#4d4d4d] text-md text px-4 py-2" type="submit">
                             <Link href="/api/users/login" className="text-[#F5F5F7]" onClick={handleLogout}>Logout</Link>
                         </button>
                     </div>
@@ -35,7 +35,7 @@ export default function Navbar() {
             ) : (
                 <div className="fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
                     <Link className="text-xl font-bold" href="/">WOUTG</Link>
-                    <div className="flex gap-4 bg-[#282828] rounded-lg hover:bg-[#4d4d4d] ">
+                    <div className="flex gap-4 bg-[#282828] hover:bg-[#4d4d4d] ">
                         <button className=" text-md text px-4 py-2" type="submit">
                             <Link href="/api/users/login" className="text-[#F5F5F7]">Login/Register</Link>
                         </button>
