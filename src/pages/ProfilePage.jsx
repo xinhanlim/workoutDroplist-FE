@@ -20,17 +20,23 @@ export default function ProfilePage() {
                         <WelcomeHeader />
                         <MyClock />
                     </div>
-                    <div className="grid md:grid-cols-3 my-8 mx-4 sm:mx-8 ">
-                        <div className="py-4 px-4 h-[500px]  bg-amber-400">
+                    <div className="grid md:grid-cols-2 my-8 mx-0 sm:mx-8 lg:grid-cols-3 ">
+                        <div className="py-4 px-4 min-w-[375px] h-[500px] bg-amber-400">
                             <h1>Exercise</h1>
                         </div>
-                        <div className="py-4 px-4 h-[500px]  bg-amber-900">
+                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-900">
                             <h1>Workout</h1>
                         </div>
-                        <div className="py-4 px-4 h-[500px]  bg-amber-600">
+                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-600">
                             <h1>Last Workout</h1>
                         </div>
-                        <div className="py-4 px-4 h-[500px] bg-amber-700">
+                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-700">
+                            <h1>Exercise</h1>
+                        </div>
+                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-100">
+                            <h1>Exercise</h1>
+                        </div>
+                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-200">
                             <h1>Exercise</h1>
                         </div>
                     </div>
