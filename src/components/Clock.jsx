@@ -13,10 +13,10 @@ export default function MyClock() {
     const formattedDate = value.toLocaleDateString([], { year: "numeric", month: "short", day: "numeric" });
 
     return (
-        <div className="flex flex-col items-end gap-1 max-[1655px]:flex-row max-[1623px]:items-center max-[1623px]:justify-end flex-1 min-w-[320px] px-4 pt-4">
-            <h1 className="text-[#282828] w-full px-1 text-center 2xl:text-right font-bold text-xl md:text-2xl  lg:text-4xl">{formattedTime},</h1>
-            <h1 className="text-[#282828] w-full px-1 text-center  2xl:text-right font-bold text-xl md:text-2xl  lg:text-4xl">{formattedDay},</h1>
-            <h1 className="text-[#282828] w-full px-1 text-center 2xl:text-right  font-bold text-xl md:text-2xl  lg:text-4xl">{formattedDate}</h1>
+        <div className="flex mx-4 px-4 pb-4 gap-10 justify-between sm:px-8 sm:justify-start">
+            <h1 className="text-[#282828] font-bold text-xl lg:text-2xl">{formattedTime},</h1>
+            <h1 className="text-[#282828] font-bold text-xl  lg:text-2xl">{formattedDay},</h1>
+            <h1 className="text-[#282828] font-bold text-xl lg:text-2xl">{formattedDate}</h1>
 
         </div>
     );

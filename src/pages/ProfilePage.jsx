@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from '../components/Navbar';
 import WelcomeHeader from '../components/WelcomeHeader';
 import MyClock from '../components/Clock';
@@ -15,11 +14,29 @@ export default function ProfilePage() {
     return (
         <>
             <Navbar />
-            <div className="bg-[#F5F5F7] h-screen">
-                <div className="bg-[#F5F5F7] py-[72px] h-screen">
-                    <div className="flex flex-wrap mx-auto ">
+            <div className="bg-[#F5F5F7]">
+                <div className="bg-[#F5F5F7] py-[72px] h-full">
+                    <div className="flex flex-col">
                         <WelcomeHeader />
-                        <MyClock/>
+                        <MyClock />
+                    </div>
+                    <div className="grid md:grid-cols-3 ">
+                        <div className="py-4 px-4 my-4 mx-4 sm:px-8 h-[500px] rounded-2xl bg-amber-400">
+                            <h1>Exercise</h1>
+                        </div>
+                        <div className="py-4 px-4 my-4 mx-4 sm:px-8 h-[500px] rounded-2xl bg-amber-400">
+                            <h1>Workout</h1>
+                        </div>
+                        <div className="py-4 px-4 my-4 mx-4 sm:px-8 h-[500px] rounded-2xl bg-amber-400">
+                            <h1>Exercise</h1>
+                        </div>
+                        <div className="py-4 px-4 my-4 mx-4 sm:px-8 h-[500px] rounded-2xl bg-amber-400">
+                            <h1>Exercise</h1>
+                        </div>
+                    </div>
+
+                    <div>
+
                     </div>
 
                 </div>
