@@ -17,7 +17,7 @@ export default function ProfilePage() {
             <Navbar />
             <div className="bg-[#F5F5F7] h-screen">
                 <div className="bg-[#F5F5F7] py-[72px] h-screen">
-                    <div className="flex flex-wrap mx-auto">
+                    <div className="flex flex-wrap mx-auto ">
                         <WelcomeHeader />
                         <MyClock/>
                     </div>

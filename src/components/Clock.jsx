@@ -9,15 +9,15 @@ export default function MyClock() {
     }, []);
 
     const formattedTime = value.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
-    const formattedDay = value.toLocaleDateString([], { weekday: "long"});
-    const formattedDate = value.toLocaleDateString([], {year: "numeric",month: "short",day: "numeric"});
+    const formattedDay = value.toLocaleDateString([], { weekday: "long" });
+    const formattedDate = value.toLocaleDateString([], { year: "numeric", month: "short", day: "numeric" });
 
     return (
-        <div className="flex flex-row pt-4 px-4 w-full justify-evenly lg:flex-col  sm:flex-1 sm:justify-start sm:gap-4 md:mt-4">
-            <h1 className="text-[#282828] w-full px-1 text-center lg:text-right font-bold text-2xl md:text-2xl lg:text-4xl">{formattedTime},</h1>
-            <h1 className="text-[#282828] w-full px-1 text-center lg:text-right font-bold text-2xl md:text-2xl  lg:text-4xl">{formattedDay},</h1>
-            <h1 className="text-[#282828] w-full px-1 text-center lg:text-right font-bold text-2xl md:text-2xl  lg:text-4xl">{formattedDate}</h1>
-            
+        <div className="flex flex-col items-end gap-1 max-[1655px]:flex-row max-[1623px]:items-center max-[1623px]:justify-end flex-1 min-w-[320px] px-4 pt-4">
+            <h1 className="text-[#282828] w-full px-1 text-center 2xl:text-right font-bold text-xl md:text-2xl  lg:text-4xl">{formattedTime},</h1>
+            <h1 className="text-[#282828] w-full px-1 text-center  2xl:text-right font-bold text-xl md:text-2xl  lg:text-4xl">{formattedDay},</h1>
+            <h1 className="text-[#282828] w-full px-1 text-center 2xl:text-right  font-bold text-xl md:text-2xl  lg:text-4xl">{formattedDate}</h1>
+
         </div>
     );
 }
