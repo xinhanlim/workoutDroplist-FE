@@ -1,6 +1,8 @@
 import Navbar from '../components/Navbar';
 import WelcomeHeader from '../components/WelcomeHeader';
 import MyClock from '../components/Clock';
+import { useLocation } from 'wouter';
+import NavCards from '../components/NavCards'
 
 
 //for profile page i will need to display the following things:
@@ -10,43 +12,31 @@ import MyClock from '../components/Clock';
 
 export default function ProfilePage() {
 
+    const [location, setLocation] = useLocation();
+
 
     return (
         <>
             <Navbar />
-            <div className="bg-[#F5F5F7]">
-                <div className="bg-[#F5F5F7] py-[72px] h-full">
-                    <div className="flex flex-col">
-                        <WelcomeHeader />
-                        <MyClock />
-                    </div>
-                    <div className="grid md:grid-cols-2 my-8 mx-0 sm:mx-8 lg:grid-cols-3 ">
-                        <div className="py-4 px-4 min-w-[375px] h-[500px] bg-amber-400">
-                            <h1>Exercise</h1>
-                        </div>
-                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-900">
-                            <h1>Workout</h1>
-                        </div>
-                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-600">
-                            <h1>Last Workout</h1>
-                        </div>
-                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-700">
-                            <h1>Exercise</h1>
-                        </div>
-                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-100">
-                            <h1>Exercise</h1>
-                        </div>
-                        <div className="py-4 px-4 h-[500px] min-w-[375px] bg-amber-200">
-                            <h1>Exercise</h1>
-                        </div>
-                    </div>
-
-                    <div>
-
-                    </div>
-
+            <div className="bg-[#F5F5F7] py-[72px] h-full">
+                <div className="flex flex-col">
+                    <WelcomeHeader />
+                    <MyClock />
                 </div>
+                <div className="grid md:grid-cols-2 my-8 mx-0 sm:mx-8 lg:grid-cols-2 ">
+                    <NavCards
+                        title="Exercises"
+                        href="/api/users/profile"
+                        image="/dumbbell.jpg"
+                        titleColor ="#282828"/>
+                    <NavCards
+                        title="Workout"
+                        href="/api"
+                        image="/workout3.jpg"
+                        titleColor ="#F5F5F7" />
 
+            
+                </div>
             </div>
         </>
     )
