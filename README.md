@@ -36,7 +36,10 @@
 - Anything that contain things doesn't belong to react will need to use useEffect,
 it only runs when the page render.
 
-### 
+### why not setExercise.map?
+- useState create a empty array 
+- when setExercise(response.data), this wil trigger a re-render
+- when this re-render, exercise will have the data from setExerise(response.data)
+- and thus we can map thru exercise
 
 </details>
-
