@@ -30,5 +30,6 @@
 ```
 
 the reason for token is to get the JWT to access the user data so i can fetch the backend ,
-next using a useState
+## Why `useEffect()` for getExercise ?
+# Mistake: Rendering the function inside the JSX.
 
