@@ -1,3 +1,5 @@
+# Problems Encountered - LESSON LEARNT
+
 ## Unable to display `Exercises` that the user created and system created 
 
 ```js 
@@ -29,7 +31,9 @@
     },[])
 ```
 
-the reason for token is to get the JWT to access the user data so i can fetch the backend ,
-## Why `useEffect()` for getExercise ?
-# Mistake: Rendering the function inside the JSX.
+### Why `useEffect()` for getExercise ?
+- Anything that contain things doesn't belong to react will need to use useEffect,
+it only runs when the page render.
+
+###
 
