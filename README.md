@@ -2,6 +2,7 @@
 
 ## 1. Unable to display `Exercises` that the user created and system created 
 <details>
+
 ```js 
  const [exercises,setExercises] = useState([])
     const { getJwt }  = useJwt();
@@ -35,7 +36,7 @@
 - Anything that contain things doesn't belong to react will need to use useEffect,
 it only runs when the page render.
 
-###
+### 
 
 </details>
 
