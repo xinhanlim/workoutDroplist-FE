@@ -28,7 +28,7 @@ export default function LoginPage() {
             const response = await axios.post(apiUrl + '/api/users/login', values)
             console.log(values);
             console.log(response.data);
-            setLocation('/api/users/profile')
+            setLocation('/profile')
             const token = response.data.token;
             setJwt(token);
             toast.success('Signed In Successfully');
@@ -45,7 +45,7 @@ export default function LoginPage() {
         <div className="bg-[#F5F5F7] ">
             <Navbar/>
             <div className="my-auto" >
-                <div className=" flex mx-auto items-center justify-center h-screen">
+                <div className=" flex mx-auto items-center justify-center h-full">
                     <div className="flex gap-4">
                         <Formik
                             initialValues={initialValues}

@@ -5,6 +5,7 @@ import { Route, Switch } from 'wouter';
 import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
 import { ToastContainer, Zoom } from 'react-toastify';
+import ExercisePage from './pages/ExercisePage';
 
 export default function App() {
   return (<>
@@ -23,9 +24,10 @@ export default function App() {
     />
     <Switch>
       <Route path='/' component={Homepage} />
-      <Route path="/api/users/login" component={LoginPage} />
-      <Route path="/api/users/register" component={RegisterPage} />
-      <Route path="/api/users/profile" component={ProfilePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      <Route path="/profile" component={ProfilePage} />
+      <Route path="/exercise" component={ExercisePage}/>
     </Switch>
   </>)
 }

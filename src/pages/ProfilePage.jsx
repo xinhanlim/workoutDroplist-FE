@@ -26,12 +26,12 @@ export default function ProfilePage() {
                 <div className="grid md:grid-cols-2 my-8 mx-0 sm:mx-8 lg:grid-cols-2 ">
                     <NavCards
                         title="Exercises"
-                        href="/api/users/profile"
+                        href="/exercise"
                         image="/dumbbell.jpg"
                         titleColor ="#282828"/>
                     <NavCards
                         title="Workout"
-                        href="/api"
+                        href="/workout"
                         image="/workout3.jpg"
                         titleColor ="#F5F5F7" />
 
