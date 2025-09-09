@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
+import useJwt from '../utils/UserStore'
 
 export default function ExercisePage() {
 
     const [exercises,setExercises] = useState([])
+    const { getJwt }  = useJwt();
 
 
     // so i need to get the exercise from the database that the user create based on their id and the system created.
     const getExercise = async () => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
-            const token = localStorage.getItem('jwt');
+            const token = getJwt();
             console.log(token);
             const response = await axios.get(apiUrl + '/api/users/exercise/',
                 {
