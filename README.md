@@ -1,6 +1,6 @@
 ## Unable to display `Exercises` that the user created and system created 
 
-``js 
+```js 
     const getExercise = async () => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
@@ -22,6 +22,4 @@
     useEffect(()=>{
         getExercise()
     },[])
-``
-
-#W
+```
