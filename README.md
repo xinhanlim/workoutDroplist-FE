@@ -33,8 +33,8 @@
 ```
 
 ### Why `useEffect()` for getExercise ?
-- Anything that contain things doesn't belong to react will need to use useEffect,
-it only runs when the page render.
+- Anything that doesn't belong to react will need to use useEffect,
+it only runs once when the page render due to the `useEffect... ,[]]`
 
 ### why not setExercise.map?
 - useState create a empty array 
