@@ -1,7 +1,7 @@
 # Problems Encountered - LESSON LEARNT
 
-## Unable to display `Exercises` that the user created and system created 
-
+## 1. Unable to display `Exercises` that the user created and system created 
+<details>
 ```js 
  const [exercises,setExercises] = useState([])
     const { getJwt }  = useJwt();
@@ -36,4 +36,6 @@
 it only runs when the page render.
 
 ###
+
+</details>
 
