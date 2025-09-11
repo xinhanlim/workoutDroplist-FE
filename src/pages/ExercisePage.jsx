@@ -42,12 +42,15 @@ export default function ExercisePage() {
                 titleColor='#F5F5F7'
             />
 
-            <div className="bg-[#f5f5f7] flex flex-col h-screen">
+            <div className="bg-[#f5f5f7] flex flex-col h-screen ">
                 <div className="flex px-4 py-4 gap-[72px] shadow-sm border-1 text-2xl w-full justify-center">
-                        <h1>ALL</h1>
-                        <h1>CORE</h1>
-                        <h1>ARMS</h1>
-                        <h1>LEGS</h1>
+                    <div className="flex flex-row flex-1 px-2 py-2 justify-center gap-[72px] h-full">
+                        <h1>- ALL</h1>
+                        <h1>-  CORE</h1>
+                        <h1>- ARMS</h1>
+                        <h1>- LEGS</h1>
+                    </div>
+                    <button type="submit" className="bg-[#282828] px-4 py-2 text-[#f5f5f7]"> + EXERCISE</button>
                 </div>
                 <div className="w-full h-full">
                     <ul className="">
