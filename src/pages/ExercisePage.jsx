@@ -6,8 +6,8 @@ import Header from '../components/Header'
 
 export default function ExercisePage() {
 
-    const [exercises,setExercises] = useState([])
-    const { getJwt }  = useJwt();
+    const [exercises, setExercises] = useState([])
+    const { getJwt } = useJwt();
 
 
     // so i need to get the exercise from the database that the user create based on their id and the system created.
@@ -22,27 +22,35 @@ export default function ExercisePage() {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                setExercises(response.data);
+            setExercises(response.data);
             console.log(response);
         } catch (e) {
             console.error(e);
         }
 
     }
-    useEffect(()=>{
+    useEffect(() => {
         getExercise()
-    },[])
+    }, [])
 
     return (
         <>
             <Navbar />
-            <Header 
-            image="/dumbbell.jpg"
-            text='Exercise'
-            titleColor='#F5F5F7'
+            <Header
+                image="/dumbbell.jpg"
+                text='Exercise'
+                titleColor='#F5F5F7'
             />
 
-            <div className="bg-[#F5F5F7] py-[72px] h-[500px]">
+            <div className="flex flex-row h-[1000px]">
+                <div className="bg-[#F5F5F7] w-[320px] drop-shadow-md h-full">
+                    <ul>
+                        <li>
+                            <h1>Hello</h1>
+                        </li>
+                    </ul>
+                </div>
+                <div className="bg-[#F5F5F7] w-full h-full">
                     <ul className="">
                         {exercises.map((ex) => (
                             <li key={ex._id}>
@@ -50,8 +58,11 @@ export default function ExercisePage() {
                             </li>
                         ))}
                     </ul>
-                
+
+                </div>
             </div>
+
+
 
 
 
