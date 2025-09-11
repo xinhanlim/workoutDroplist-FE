@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import useJwt from '../utils/UserStore'
+import Header from '../components/Header'
 
 export default function ExercisePage() {
 
@@ -35,7 +36,13 @@ export default function ExercisePage() {
     return (
         <>
             <Navbar />
-            <div className="bg-[#F5F5F7] py-[72px] h-full">
+            <Header 
+            image="/dumbbell.jpg"
+            text='Exercise'
+            titleColor='#F5F5F7'
+            />
+
+            <div className="bg-[#F5F5F7] py-[72px] h-[500px]">
                     <ul className="">
                         {exercises.map((ex) => (
                             <li key={ex._id}>
