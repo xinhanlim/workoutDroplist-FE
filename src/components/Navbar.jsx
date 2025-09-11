@@ -8,21 +8,22 @@ export default function Navbar() {
 
     const [location, setLocation] = useLocation();
     const { getJwt, clearJwt } = useJwt();
-    const jwt = getJwt();
+    const token = getJwt();
     // navbar so when login want the login/regiser button to dissappear
     // when profile page, login/register page dissappear, but with a hello id - tag to a jwt for security?
     //condition rendering vs state management?
 
     const handleLogout = () => {
-        clearJwt(),
-            setLocation('/')
-            toast.info("You Have Logout Successfully")
+        clearJwt(token),
+        setLocation('/')
+        toast.info("You Have Logout Successfully")
+
     }
 
     return (
         <>
-            {jwt ? (
-                <div className="fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
+            {token ? (
+                <div className="z-50 fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
                     <Link className="text-xl font-bold"href="/profile">WOUTG</Link>
                     <div className="flex gap-8 items-center">
                         <Link className="text-md "href="/profile">Overview</Link>
@@ -33,7 +34,7 @@ export default function Navbar() {
                     
                 </div>
             ) : (
-                <div className="fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
+                <div className="z-50 fixed top-0 left-0 flex w-screen items-center min-w-[360px] justify-between px-4 py-4 bg-[#F5F5F7] sm:px-8">
                     <Link className="text-xl font-bold" href="/">WOUTG</Link>
                     <div className="flex gap-4 bg-[#282828] hover:bg-[#4d4d4d] ">
                         <button className=" text-md text px-4 py-2" type="submit">
