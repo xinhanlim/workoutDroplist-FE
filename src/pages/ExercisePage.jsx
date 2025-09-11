@@ -42,15 +42,14 @@ export default function ExercisePage() {
                 titleColor='#F5F5F7'
             />
 
-            <div className="flex flex-row h-[1000px]">
-                <div className="bg-[#F5F5F7] w-[320px] drop-shadow-md h-full">
-                    <ul>
-                        <li>
-                            <h1>Hello</h1>
-                        </li>
-                    </ul>
+            <div className="bg-[#f5f5f7] flex flex-col h-screen">
+                <div className="flex px-4 py-4 gap-[72px] shadow-sm border-1 text-2xl w-full justify-center">
+                        <h1>ALL</h1>
+                        <h1>CORE</h1>
+                        <h1>ARMS</h1>
+                        <h1>LEGS</h1>
                 </div>
-                <div className="bg-[#F5F5F7] w-full h-full">
+                <div className="w-full h-full">
                     <ul className="">
                         {exercises.map((ex) => (
                             <li key={ex._id}>
