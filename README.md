@@ -48,18 +48,18 @@ useEffect(() => {
 
 <details>
 
-- Instead of having onClick for each of the tabs `ALL`,`CORE`,`ARMS`,`LEGS`
-- we can use one onClick and map thru to render whichever user clicks.
+```js
+const [isActivitiesGroup, setActivitiesGroup] = useState("all");
+const groups = ["all", "core", "arms", "legs"];
+```
+
+- Instead of having onClick function for each of the tabs `ALL`,`CORE`,`ARMS`,`LEGS`
+- we use state variable `isActivtiesGroup` to map through an array of `groups` to generate the buttons dynamically.
 - `useState(['all'])` -> it shows 'all' first when first render as initial value.
 
 ```js
-    const groups = ["all", "core", "arms", "legs"];
-```
-
-- we need to create the tabs here into an array WHY? 
-- instead of writing 4 buttons for each. we can later on use .map to map thru the array as a key value and generate the buttons.
-```js
-{groups.map((g) => (
+{
+  groups.map((g) => (
     <button
       key={g}
       type="button"
@@ -68,19 +68,20 @@ useEffect(() => {
         isActivitiesgroup === g
           ? "font-bold text-[#282828] uppercase"
           : "text-gray-500 hover:text-[#111827] uppercase"
-      }>- {g}
+      }
+    >
+      - {g}
     </button>
   ));
 }
 ```
+
 - `isActivitiesG === g ?` if it's true we gave the `className = font-bold... uppercase` if false then `text-gray-500 hover:text-[#111827] uppercase`
 - map thru the array of `groups =['all','core','arms','legs']` , initialvalue will be `'all'` since i called it at the top when `useState('all')`
-- by default it will show the `ALL` tab first. 
-- so `onClick => setActivitiesGroup(g)` we change the value and re-render after it trigger again . 
+- by default it will show the `ALL` tab first.
+- so `onClick => setActivitiesGroup(g)` we change the value and re-render after it trigger again .
 - so say we click on `CORE` tab, `setAcitivitesGroup(g)` value will change to `setAcitivitesGroup('core')`.
-- and then it passed it value to `isActivitiesGroup` and thus `isActivitiesGroup === g   //('g = core')` 
-- thus `CORE` tab will be  `className="font-bold text-[#282828] uppercase"` while the rest of `ALL,ARMS,LEGS` will be `"text-gray-500 hover:text-[#111827] uppercase"`
-
-
+- and then it passed it value to `isActivitiesGroup` and thus `isActivitiesGroup === g   //('g = core')`
+- thus `CORE` tab will be `className="font-bold text-[#282828] uppercase"` while the rest of `ALL,ARMS,LEGS` will be `"text-gray-500 hover:text-[#111827] uppercase"`
 
 </details>
