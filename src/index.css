@@ -2,4 +2,14 @@
 
 html {
   scroll-behavior: smooth;
+  background: #F5F5F7;
+}
+
+body {
+   width: 100%;
+   margin: 0;
+    }
+
+::-webkit-scrollbar {
+  display: none;
 }

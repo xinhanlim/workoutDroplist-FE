@@ -26,8 +26,6 @@ export default function LoginPage() {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const response = await axios.post(apiUrl + '/api/users/login', values)
-            console.log(values);
-            console.log(response.data);
             setLocation('/profile')
             const token = response.data.token;
             setJwt(token);
@@ -55,11 +53,11 @@ export default function LoginPage() {
                                 function (formik) {
                                     return (
                                         <Form className="flex flex-col min-w-[360px] w-full max-w-md p-8 mx-auto my-12 space-y-8">
-                                            <p className="text-[64px] ">W O R K O U T  G A M I F I E D W O R K</p>
-                                            <p className="text-sm text-gray-500 text-center">Login to continue to WorkOutGamified</p>
+                                            <p className="text-[64px] text-[##282828] ">W O R K O U T  G A M I F I E D W O R K</p>
+                                            <p className="text-sm text-[#4d4d4d] text-center">Login to continue to WorkOutGamified</p>
 
-                                            <div>
-                                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                            <div className="space-y-3">
+                                                <label className="block text-sm font-medium text-[#282828]">
                                                     Email
                                                 </label>
                                                 <Field
@@ -67,13 +65,13 @@ export default function LoginPage() {
                                                     id="email"
                                                     name="email"
                                                     placeholder="you@example.com"
-                                                    className="mt-1 block w-full border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-[#282828]-500 focus:ring-[#282828]-500 sm:text-sm"
+                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] placeholder-[#4d4d4d]shadow-sm  sm:text-sm"
                                                 />
                                                 <ErrorMessage name="email" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
 
-                                            <div>
-                                                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                                            <div className="space-y-3">
+                                                <label className="block text-sm font-medium text-gray-700">
                                                     Password
                                                 </label>
                                                 <Field
@@ -81,7 +79,7 @@ export default function LoginPage() {
                                                     id="password"
                                                     name="password"
                                                     placeholder="••••••••"
-                                                    className="mt-1 block w-full border border-gray-300 px-3 py-2 text-[#282828] placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] placeholder-[#4d4d4d] shadow-sm sm:text-sm"
                                                 />
                                                 <ErrorMessage name="password" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
@@ -97,7 +95,7 @@ export default function LoginPage() {
                                                 <button
                                                     type="button"
                                                     className="w-full cursor-pointer bg-[#F5F5F7] px-4 py-2 text-[#282828] font-medium shadow hover:bg-[#bdbdbd]"
-                                                    onClick={() => setLocation('/api/users/register')}
+                                                    onClick={() => setLocation('/register')}
                                                     disabled={formik.isSubmitting}
                                                 >
                                                     Register

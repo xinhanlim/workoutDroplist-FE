@@ -34,5 +34,13 @@ export default function useJwt() {
             .join(" ");
     }
 
-    return { setJwt, getJwt, clearJwt, decodeJwtDisplayName };
+    const decodeJwtId = () => {
+        const token = localStorage.getItem('jwt');
+        const decoded = token ? jwtDecode(token) : null;
+        const id = decoded?._id;
+
+        return id
+    }
+
+    return { setJwt, getJwt, clearJwt, decodeJwtDisplayName, decodeJwtId };
 }
