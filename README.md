@@ -84,4 +84,13 @@ const groups = ["all", "core", "arms", "legs"];
 - and then it passed it value to `isActivitiesGroup` and thus `isActivitiesGroup === g   //('g = core')`
 - thus `CORE` tab will be `className="font-bold text-[#282828] uppercase"` while the rest of `ALL,ARMS,LEGS` will be `"text-gray-500 hover:text-[#111827] uppercase"`
 
+How the 4 buttons show up ?
+```js
+const groups = ["all", "core", "arms", "legs"];
+{groups.map((g) => (<button>...) -{g} </button>;}
+```
+- the array holds 4 tabs in groups.
+- the map function take each item as a variable `(g)` and create each button for it 
+- first item : `g ='all'` and create a button for it -> `<button> -'all'<button>`, and so fore till `LEGS` button.
+
 </details>
