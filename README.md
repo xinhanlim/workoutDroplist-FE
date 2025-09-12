@@ -42,7 +42,11 @@ useEffect(() => {
 - when this re-render, exercise will have the data from setExerise(response.data)
 - and thus we can map thru exercise
 
+</details>
+
 ## 2.Displaying tabs in ExercisePage for filteration of Muscle Groups
+
+<details>
 
 - Instead of having onClick for each of the tabs `ALL`,`CORE`,`ARMS`,`LEGS`
 - we can use one onClick and map thru to render whichever user clicks.
@@ -69,12 +73,14 @@ useEffect(() => {
   ));
 }
 ```
-- isActivitiesG === g ? if it's true we gave the `className = font-bold... uppercase` if false then `text-gray-500 hover:text-[#111827] uppercase`
+- `isActivitiesG === g ?` if it's true we gave the `className = font-bold... uppercase` if false then `text-gray-500 hover:text-[#111827] uppercase`
 - map thru the array of `groups =['all','core','arms','legs']` , initialvalue will be `'all'` since i called it at the top when `useState('all')`
 - by default it will show the `ALL` tab first. 
 - so `onClick => setActivitiesGroup(g)` we change the value and re-render after it trigger again . 
-- so say we click on `CORE` tab, `setAcitivitesGroup(g)` value will change to `'core'`.
-- `isActivitiesGroup === g   //('core')` then we `"font-bold text-[#282828] uppercase"`
+- so say we click on `CORE` tab, `setAcitivitesGroup(g)` value will change to `setAcitivitesGroup('core')`.
+- and then it passed it value to `isActivitiesGroup` and thus `isActivitiesGroup === g   //('g = core')` 
+- thus `CORE` tab will be  `className="font-bold text-[#282828] uppercase"` while the rest of `ALL,ARMS,LEGS` will be `"text-gray-500 hover:text-[#111827] uppercase"`
+
 
 
 </details>
