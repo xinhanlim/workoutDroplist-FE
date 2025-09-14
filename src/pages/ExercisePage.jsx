@@ -5,6 +5,7 @@ import useJwt from '../utils/UserStore'
 import Header from '../components/Header'
 import ExerciseDialog from '../components/ExerciseDialog'
 
+
 export default function ExercisePage() {
 
     // so i need to get the exercise from the database that the user create based on their id and the system created.
@@ -12,8 +13,7 @@ export default function ExercisePage() {
     const [exercises, setExercises] = useState([]);
     const [isActivitiesGroup, setActivitiesGroup] = useState('all');
     const [isOpen, setIsOpen] = useState(false);
-    const { getJwt, decodeJwtId } = useJwt();
-    const userId = decodeJwtId();
+    const { getJwt } = useJwt();
 
     // API to get the exercise created by system and based on user JWT.
     const getExercise = async () => {
@@ -92,10 +92,13 @@ export default function ExercisePage() {
                 {isOpen && (
                     <ExerciseDialog
                         open={isOpen}
-                        onClose={() => setIsOpen(false)}
-                        userId={userId}
+                        onClose={() => { setIsOpen(false);
+                            getExercise();
+                        }
+                        }
+                        
                     />
-                    )}
+                )}
 
 
             </div>

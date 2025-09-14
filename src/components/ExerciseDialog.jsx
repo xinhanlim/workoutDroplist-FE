@@ -5,7 +5,7 @@ import axios from "axios";
 import  useJwt  from "../utils/UserStore";
 import { toast } from "react-toastify";
 
-export default function ExerciseDialog({ open, onClose, userId }) {
+export default function ExerciseDialog({ open, onClose, onCreated}) {
 
     const { getJwt } = useJwt();
     
@@ -17,7 +17,7 @@ export default function ExerciseDialog({ open, onClose, userId }) {
         muscleGroup: Yup.string()
             .oneOf(["core", "arms", "legs"]).required("Pick a group"),
 
-        units: Yup.string().required("Units are required"),
+        unit: Yup.string().required("Units are required"),
 
         difficulty: Yup.string()
             .oneOf(["beginner", "intermediate", "advanced"], "Pick valid difficulty")
@@ -27,15 +27,16 @@ export default function ExerciseDialog({ open, onClose, userId }) {
     const initialValues = {
         "name": "",
         "muscleGroup": "",
-        "units": "",
+        "unit": "",
         "difficulty": ""
     }
+
 
     const handleSubmit = async (values, formikHelpers) => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const token = getJwt();
-            const response = await axios.post(apiUrl + `/api/users/exercise/new/${userId}`, values,
+            const response = await axios.post(apiUrl + `/api/users/exercise/new`, values,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -43,7 +44,10 @@ export default function ExerciseDialog({ open, onClose, userId }) {
                 }
             )
             toast.success('Exercise Created Successfully');
+            formikHelpers.resetForm();
+            onClose();
             return response.data
+            
         } catch (e) {
             console.error(e);
             toast.warn("Error creating Exercise, Please Check the Fields")
@@ -52,7 +56,6 @@ export default function ExerciseDialog({ open, onClose, userId }) {
             formikHelpers.setSubmitting(false);
         }
     }
-    // <button type="submit" className="bg-[#282828] px-4 py-2 text-[#f5f5f7]"> + EXERCISE</button>
     return (
         <>
             <Dialog open={open} onClose={onClose} className="relative z-50">
@@ -105,12 +108,12 @@ export default function ExerciseDialog({ open, onClose, userId }) {
                                             <div>
                                                 <label className="block text-sm font-medium text-[#282828]">Units</label>
                                                 <Field
-                                                    id='units'
-                                                    name="units"
+                                                    id='unit'
+                                                    name="unit"
                                                     placeholder="e.g. Reps"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] placeholder-[#4d4d4d] shadow-sm  sm:text-sm"
                                                 />
-                                                <ErrorMessage name="units" component="div" className=" text-sm text-red-600" />
+                                                <ErrorMessage name="unit" component="div" className=" text-sm text-red-600" />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-[#282828]">Difficulty</label>
