@@ -20,7 +20,7 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
         unit: Yup.string().required("Units are required"),
 
         difficulty: Yup.string()
-            .oneOf(["beginner", "intermediate", "advanced"], "Pick valid difficulty")
+            .oneOf(["Beginner", "Intermediate", "Advanced"], "Pick valid difficulty")
             .required("Difficulty is required")
     });
 
@@ -124,9 +124,9 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] shadow-sm sm:text-sm"
                                                 >
                                                     <option value="" disabled hidden>Select...</option>
-                                                    <option value="beginner">Beginner</option>
-                                                    <option value="intermediate">Intermediate</option>
-                                                    <option value="advanced">Advanced</option>
+                                                    <option value="Beginner">Beginner</option>
+                                                    <option value="Intermediate">Intermediate</option>
+                                                    <option value="Advanced">Advanced</option>
                                                 </Field>
                                                 <ErrorMessage name="difficulty" component="div" className="mt-1 text-sm text-red-600" />
                                             </div>

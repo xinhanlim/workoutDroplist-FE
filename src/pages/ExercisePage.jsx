@@ -4,6 +4,7 @@ import axios from 'axios'
 import useJwt from '../utils/UserStore'
 import Header from '../components/Header'
 import ExerciseDialog from '../components/ExerciseDialog'
+import ExerciseCard from '../components/ExerciseCard'
 
 
 export default function ExercisePage() {
@@ -13,7 +14,9 @@ export default function ExercisePage() {
     const [exercises, setExercises] = useState([]);
     const [isActivitiesGroup, setActivitiesGroup] = useState('all');
     const [isOpen, setIsOpen] = useState(false);
-    const { getJwt } = useJwt();
+    const { getJwt, decodeJwtDisplayName } = useJwt();
+
+    const displayName = decodeJwtDisplayName();
 
     // API to get the exercise created by system and based on user JWT.
     const getExercise = async () => {
@@ -43,7 +46,6 @@ export default function ExercisePage() {
 
     // for exercise cards
     const filterGrps = isActivitiesGroup === 'all' ? exercises : exercises.filter(ex => (ex.muscleGroup || "").toLowerCase() === isActivitiesGroup);
-
 
     return (
         <>
@@ -80,27 +82,31 @@ export default function ExercisePage() {
 
                 {/* Exercise Card Area */}
                 <div className="w-full h-full">
-                    <ul className="">
-                        {filterGrps.map((ex) => (
-                            <li key={ex._id}>
-                                {ex.name} <span className="text-sm text-gray-500">({ex.createdBy})</span>
-                            </li>
+                    <div className="grid grid-cols-1">
+                        {filterGrps.map((fg) => (
+                            <ExerciseCard
+                                key={fg._id}
+                                exercise={fg}
+                            />
                         ))}
-                    </ul>
+
+                    </div>
+                    {filterGrps.length === 0 && (
+                        <div className="p-8 text-center text-gray-500">No exercises in this group yet.</div>
+                    )}
                 </div>
 
+                {/* For Modal Opening */}
                 {isOpen && (
                     <ExerciseDialog
                         open={isOpen}
-                        onClose={() => { setIsOpen(false);
+                        onClose={() => {
+                            setIsOpen(false);
                             getExercise();
                         }
                         }
-                        
                     />
                 )}
-
-
             </div>
 
 
