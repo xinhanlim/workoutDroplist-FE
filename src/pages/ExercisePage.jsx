@@ -87,6 +87,7 @@ export default function ExercisePage() {
                             <ExerciseCard
                                 key={fg._id}
                                 exercise={fg}
+                                creatorId={displayName}
                             />
                         ))}
 
