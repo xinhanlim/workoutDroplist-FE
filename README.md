@@ -1,3 +1,9 @@
+# Knowledge Learnt
+
+
+
+
+
 # Problems Encountered - LESSON LEARNT
 
 ## 1. Unable to display `Exercises` that the user created and system created
