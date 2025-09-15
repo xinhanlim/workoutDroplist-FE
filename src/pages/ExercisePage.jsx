@@ -5,6 +5,7 @@ import useJwt from '../utils/UserStore'
 import Header from '../components/Header'
 import ExerciseDialog from '../components/ExerciseDialog'
 import ExerciseCard from '../components/ExerciseCard'
+import ExerciseGrp from '../components/ExerciseGrp'
 
 
 export default function ExercisePage() {
@@ -14,9 +15,7 @@ export default function ExercisePage() {
     const [exercises, setExercises] = useState([]);
     const [isActivitiesGroup, setActivitiesGroup] = useState('all');
     const [isOpen, setIsOpen] = useState(false);
-    const { getJwt, decodeJwtDisplayName } = useJwt();
-
-    const displayName = decodeJwtDisplayName();
+    const { getJwt } = useJwt();
 
     // API to get the exercise created by system and based on user JWT.
     const getExercise = async () => {
@@ -55,45 +54,39 @@ export default function ExercisePage() {
                 text='Exercise'
                 titleColor='#F5F5F7'
             />
-
             <div className="bg-[#f5f5f7] flex flex-col h-screen ">
                 {/* Exercise Tabs 'ALL'，'CORE','ARMS',‘LEGS' + ADD EXERCISE BUTTON */}
-                <div className="flex px-4 py-4 gap-[72px] shadow-sm border-1 text-2xl w-full justify-center">
+
+                <div className="flex px-4 py-4 gap-4 shadow-sm border text-2xl w-full justify-between ring-1">
                     {/* EXERCISE TABS */}
-                    <div className="flex flex-row flex-1 px-2 py-2 justify-center gap-[72px] h-full">
-                        {groups.map(g =>
-                            <button
-                                key={g}
-                                type="button"
-                                onClick={() => setActivitiesGroup(g)}
-                                className={
-                                    isActivitiesGroup === g
-                                        ? "font-bold text-[#282828] uppercase"
-                                        : "text-gray-500 hover:text-[#111827] uppercase cursor-pointer"
-                                }>- {g}
-                            </button>
-                        )}
+                    <div className="flex flex-row px-2 justify-center gap-4 ">
+                        <ExerciseGrp
+                            groups={groups}
+                            value={isActivitiesGroup}
+                            onChange={setActivitiesGroup}
+                            className="px-4 py-2"
+                        />
                     </div>
 
+
                     {/* EXERCISE BUTTON */}
-                    <button type="submit" className="bg-[#282828] px-4 py-2 text-[#f5f5f7] cursor-pointer hover:bg-[#4d4d4d]" onClick={() => setIsOpen(true)}>
-                        + EXERCISE</button>
+                    <button type="submit" className="bg-[#282828] px-4 py-2 text-sm md:text-lg text-[#f5f5f7] cursor-pointer hover:bg-[#4d4d4d]" onClick={() => setIsOpen(true)}>
+                        + EXERCISE </button>
                 </div>
 
                 {/* Exercise Card Area */}
                 <div className="w-full h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-3">
+                    <div className="grid grid-cols-1 md:grid-cols-4 border ">
                         {filterGrps.map((fg) => (
                             <ExerciseCard
                                 key={fg._id}
                                 exercise={fg}
-                                
                             />
                         ))}
 
                     </div>
                     {filterGrps.length === 0 && (
-                        <div className="p-8 text-center text-gray-500">No exercises in this group yet.</div>
+                        <div className="p-8 text-center text-[#282828]/50">No exercises in this group yet.</div>
                     )}
                 </div>
 
