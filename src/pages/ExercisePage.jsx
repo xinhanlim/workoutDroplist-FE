@@ -8,7 +8,7 @@ import ExerciseCard from '../components/ExerciseCard'
 import ExerciseGrp from '../components/ExerciseGrp'
 
 
-export default function ExercisePage() {
+export default function ExercisePage({ onEdit }) {
 
     // so i need to get the exercise from the database that the user create based on their id and the system created.
 
@@ -16,6 +16,13 @@ export default function ExercisePage() {
     const [isActivitiesGroup, setActivitiesGroup] = useState('all');
     const [isOpen, setIsOpen] = useState(false);
     const { getJwt } = useJwt();
+
+    const handleEdit = (updated) => {
+        setExercises((prevArray) => (
+            prevArray.map((p) => (p._id === updated._id ? { ...p, ...updated } : p)
+            )
+        ))
+    }
 
     // API to get the exercise created by system and based on user JWT.
     const getExercise = async () => {
@@ -36,13 +43,15 @@ export default function ExercisePage() {
         }
 
     }
+
     useEffect(() => {
         getExercise()
     }, [])
 
+
+
     // For filteration tabs
     const groups = ['all', 'core', 'arms', 'legs'];
-
     // for exercise cards
     const filterGrps = isActivitiesGroup === 'all' ? exercises : exercises.filter(ex => (ex.muscleGroup || "").toLowerCase() === isActivitiesGroup);
 
@@ -81,6 +90,7 @@ export default function ExercisePage() {
                             <ExerciseCard
                                 key={fg._id}
                                 exercise={fg}
+                                onEdit={handleEdit}
                             />
                         ))}
 
@@ -90,7 +100,7 @@ export default function ExercisePage() {
                     )}
                 </div>
 
-                {/* For Modal Opening */}
+                {/* For + Modal Opening */}
                 {isOpen && (
                     <ExerciseDialog
                         open={isOpen}

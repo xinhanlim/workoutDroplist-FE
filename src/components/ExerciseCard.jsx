@@ -1,28 +1,25 @@
-import React from 'react';
-import useJwt from '../utils/UserStore'
+import ExerciseEdit from './ExerciseEdit'
+import { useState } from 'react'
 
 export default function ExerciseCard({
     exercise,
-    creatorId,
     onEdit,
     onDelete,
 }
 ) {
 
-    const { _id, name, muscleGroup, unit, createdBy } = exercise;
-
+    const {name, muscleGroup, unit, difficulty, createdBy } = exercise;
     const isSystem = String(createdBy).toLowerCase() === 'system';
-
     const creator = isSystem ? "System" : "You"
+    const [isEdit, setIsEdit] = useState(false)
+    const [isDelete, setIsDelete] = useState(false)
 
     const handleEdit = () => {
-        if (!canModify) return;
-        onEdit?.(exercise);
+        setIsEdit(true)
     }
 
     const handleDelele = () => {
-        if (!canModify) return;
-        onDelete?.(_id);
+        setIsDelete(true)
     }
 
 
@@ -32,24 +29,35 @@ export default function ExerciseCard({
                 <h3 className="font-semibold py-2 text-[#282828]">Name: {name}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]">Muscle Group: {muscleGroup}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]">Units: {unit}</h3>
+                <h3 className="font-semibold py-2 text-[#282828]">Difficulty: {difficulty}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]/50">Created By: {creator}</h3>
 
                 {!isSystem && (
                     <div className="flex flex-row gap-4">
-                    <button onClick={handleEdit}
-                        className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#282828] text-[#F5F5F7] hover:bg-[#4d4d4d] transition-colors"
-                        type="button" >Edit Exercise
-                    </button>
+                        <button onClick={handleEdit}
+                            className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#282828] text-[#F5F5F7] hover:bg-[#4d4d4d] transition-colors"
+                            type="button" >Edit Exercise
+                        </button>
 
-                    <button onClick={handleDelele}
-                        className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#F5F5F7] text-[#282828] hover:bg-[#4d4d4d] transition-colors"
-                        type="button" >Delete Exercise
-                    </button>
+                        <button onClick={handleDelele}
+                            className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#F5F5F7] text-[#282828] hover:bg-[#4d4d4d] transition-colors"
+                            type="button" >Delete Exercise
+                        </button>
 
+                        <ExerciseEdit
+                            open={isEdit}
+                            exercise={exercise}                 
+                            onClose={() => setIsEdit(false)}
+                            onUpdated={(updated) =>{
+                                onEdit(updated),
+                                setIsEdit(false)
+                            }}
+                        />
                 </div>
                 )
+
                 }
-                
+
 
             </div>
         </>

@@ -27,6 +27,8 @@ export default function Navbar() {
                     <Link className="text-xl font-bold"href="/profile">WOUTG</Link>
                     <div className="flex gap-8 items-center">
                         <Link className="text-md "href="/profile">Overview</Link>
+                        <Link className="text-md "href="/exercise">Exercise</Link>
+                        <Link className="text-md "href="/workout">Workout</Link>
                         <button className=" gap-4 bg-[#282828]  hover:bg-[#4d4d4d] text-md text px-4 py-2" type="submit">
                             <Link href="/login" className="text-[#F5F5F7]" onClick={handleLogout}>Logout</Link>
                         </button>
