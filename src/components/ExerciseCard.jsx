@@ -11,14 +11,18 @@ export default function ExerciseCard({
 
     const { _id, name, muscleGroup, unit, createdBy } = exercise;
 
-    let creator = createdBy !== "System" ? creatorId = "You" : "System"
+    const isSystem = String(createdBy).toLowerCase() === 'system';
+
+    const creator = isSystem ? "System" : "You"
 
     const handleEdit = () => {
-        onEdit(exercise)
+        if (!canModify) return;
+        onEdit?.(exercise);
     }
 
     const handleDelele = () => {
-        onDelete(_id)
+        if (!canModify) return;
+        onDelete?.(_id);
     }
 
 
@@ -30,7 +34,8 @@ export default function ExerciseCard({
                 <h3 className="font-semibold py-2 text-[#282828]">Units: {unit}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]/50">Created By: {creator}</h3>
 
-                <div className="flex flex-row gap-4">
+                {!isSystem && (
+                    <div className="flex flex-row gap-4">
                     <button onClick={handleEdit}
                         className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#282828] text-[#F5F5F7] hover:bg-[#4d4d4d] transition-colors"
                         type="button" >Edit Exercise
@@ -42,6 +47,9 @@ export default function ExerciseCard({
                     </button>
 
                 </div>
+                )
+                }
+                
 
             </div>
         </>
