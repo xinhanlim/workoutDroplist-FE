@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
 import useJwt from '../utils/UserStore'
@@ -82,7 +82,7 @@ export default function ExercisePage() {
             <Navbar />
             <Header
                 image="/dumbbell.jpg"
-                text='Exercise'
+                text='EXERCISE'
                 titleColor='#F5F5F7'
             />
             <div className="bg-[#f5f5f7] flex flex-col h-screen ">

@@ -19,6 +19,7 @@ export default function ExerciseCard({
         setIsEdit(true)
     }
 
+    // here we dod this to create a toast box to ask for double confirmation. where the exercise._id is gotten from the exercisepage
     const handleDelele = async () => {
         toast.warn(
             <div>

@@ -42,5 +42,6 @@ export default function useJwt() {
         return id
     }
 
+
     return { setJwt, getJwt, clearJwt, decodeJwtDisplayName, decodeJwtId };
 }

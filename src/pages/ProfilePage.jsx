@@ -12,8 +12,6 @@ import NavCards from '../components/NavCards'
 
 export default function ProfilePage() {
 
-    const [location, setLocation] = useLocation();
-
 
     return (
         <>
