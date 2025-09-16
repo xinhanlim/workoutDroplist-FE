@@ -22,7 +22,6 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
             .oneOf(["Beginner", "Intermediate", "Advanced"], "Pick valid difficulty")
             .required("Difficulty is required")
     });
-    console.log("Pass")
     const initialValues = {
         "name": exercise.name,
         "muscleGroup": exercise.muscleGroup,
@@ -42,9 +41,7 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
                     }
                 }
             )
-            console.log("[EDIT] submit url:", `${apiUrl}/api/users/exercise/update/${exercise._id}`);
-            console.log("[EDIT] payload:", values);
-
+            console.log("exercise._id update : ", exercise._id)
             toast.success('Exercise Updated Successfully');
             formikHelpers.resetForm();
             const updated = response.data

@@ -6,9 +6,10 @@ import Header from '../components/Header'
 import ExerciseDialog from '../components/ExerciseDialog'
 import ExerciseCard from '../components/ExerciseCard'
 import ExerciseGrp from '../components/ExerciseGrp'
+import { toast } from 'react-toastify'
 
 
-export default function ExercisePage({ onEdit }) {
+export default function ExercisePage() {
 
     // so i need to get the exercise from the database that the user create based on their id and the system created.
 
@@ -24,6 +25,27 @@ export default function ExercisePage({ onEdit }) {
         ))
     }
 
+    const handleDelete = async (id) => {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const prev = exercises;
+        setExercises(xs => xs.filter(x => x._id !== id));
+        console.log("Current Array Of Exercise: ", prev)
+
+        try {
+            const token = getJwt();
+            const result = await axios.delete(apiUrl + `/api/users/exercise/delete/${id}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            console.log("ExerciseId: ", exercises._id)
+            console.log("Result", result)
+            toast.success('Delete Succesfully');
+            return result
+        } catch (e) {
+            console.error(e);
+            setExercises(prev)
+        }
+    }
+
     // API to get the exercise created by system and based on user JWT.
     const getExercise = async () => {
         try {
@@ -37,7 +59,6 @@ export default function ExercisePage({ onEdit }) {
                     }
                 });
             setExercises(response.data);
-            console.log(response);
         } catch (e) {
             console.error(e);
         }
@@ -76,8 +97,6 @@ export default function ExercisePage({ onEdit }) {
                             className="px-4 py-2"
                         />
                     </div>
-
-
                     {/* EXERCISE BUTTON */}
                     <button type="submit" className="bg-[#282828] px-4 py-2 text-sm md:text-lg text-[#f5f5f7] cursor-pointer hover:bg-[#4d4d4d]" onClick={() => setIsOpen(true)}>
                         + EXERCISE </button>
@@ -91,6 +110,7 @@ export default function ExercisePage({ onEdit }) {
                                 key={fg._id}
                                 exercise={fg}
                                 onEdit={handleEdit}
+                                onDelete={handleDelete}
                             />
                         ))}
 

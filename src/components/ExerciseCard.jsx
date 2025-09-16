@@ -1,5 +1,7 @@
 import ExerciseEdit from './ExerciseEdit'
 import { useState } from 'react'
+import { toast } from "react-toastify";
+
 
 export default function ExerciseCard({
     exercise,
@@ -8,18 +10,41 @@ export default function ExerciseCard({
 }
 ) {
 
-    const {name, muscleGroup, unit, difficulty, createdBy } = exercise;
+    const { name, muscleGroup, unit, difficulty, createdBy } = exercise;
     const isSystem = String(createdBy).toLowerCase() === 'system';
     const creator = isSystem ? "System" : "You"
     const [isEdit, setIsEdit] = useState(false)
-    const [isDelete, setIsDelete] = useState(false)
 
     const handleEdit = () => {
         setIsEdit(true)
     }
 
-    const handleDelele = () => {
-        setIsDelete(true)
+    const handleDelele = async () => {
+        toast.warn(
+            <div>
+                <p>Double Confirmation To Delete {name}? </p>
+                <div className="flex mt-2 gap-4">
+                    <button className=" bg-[#FF0000]/80 text-[#f5f5f7] w-[72px] hover:bg-[#FF0000]/90"
+                        onClick={() => {
+                            onDelete(exercise._id); 
+                            toast.dismiss();
+                        }}> Yes
+                    </button>
+                        <button
+                            onClick={() => toast.dismiss()}
+                            className="px-3 py-1 rounded bg-[#f5f5f7] text-[#282828]"
+                        >
+                            Cancel
+                        </button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+                closeOnClick: false,
+                draggable: false,
+            }
+        )
+        console.log("_id ?? : " ,exercise._id)
     }
 
 
@@ -33,7 +58,7 @@ export default function ExerciseCard({
                 <h3 className="font-semibold py-2 text-[#282828]/50">Created By: {creator}</h3>
 
                 {!isSystem && (
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-row gap-4 py-2">
                         <button onClick={handleEdit}
                             className="flex-1 px-3 py-1.5 text-sm ring-1 ring-[#282828] bg-[#282828] text-[#F5F5F7] hover:bg-[#4d4d4d] transition-colors"
                             type="button" >Edit Exercise
@@ -46,14 +71,14 @@ export default function ExerciseCard({
 
                         <ExerciseEdit
                             open={isEdit}
-                            exercise={exercise}                 
+                            exercise={exercise}
                             onClose={() => setIsEdit(false)}
-                            onUpdated={(updated) =>{
+                            onUpdated={(updated) => {
                                 onEdit(updated),
-                                setIsEdit(false)
+                                    setIsEdit(false)
                             }}
                         />
-                </div>
+                    </div>
                 )
 
                 }

@@ -2,20 +2,21 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import  useJwt  from "../utils/UserStore";
+import useJwt from "../utils/UserStore";
 import { toast } from "react-toastify";
 
-export default function ExerciseDialog({ open, onClose, onCreated}) {
+export default function ExerciseDialog({ open, onClose, onCreated }) {
 
     const { getJwt } = useJwt();
-    
+
 
     const validationSchema = Yup.object({
         name: Yup.string().trim()
             .required("Name is required"),
 
-        muscleGroup: Yup.string()
-            .oneOf(["core", "arms", "legs"]).required("Pick a group"),
+        muscleGroup: Yup.string().transform(v => (v ?? "").toLowerCase())
+            .oneOf(["core", "arms", "legs", "chest", "shoulders", "full body", "back"])
+            .required("Pick a group"),
 
         unit: Yup.string().required("Units are required"),
 
@@ -47,7 +48,7 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
             formikHelpers.resetForm();
             onClose();
             return response.data
-            
+
         } catch (e) {
             console.error(e);
             toast.warn("Error creating Exercise, Please Check the Fields")
@@ -98,10 +99,13 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
                                                     name="muscleGroup"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] shadow-sm sm:text-sm"
                                                 >
-                                                    <option value="" disabled hidden>Select...</option>
-                                                    <option value="core">CORE</option>
-                                                    <option value="arms">ARMS</option>
-                                                    <option value="legs">LEGS</option>
+                                                    <option value="Core">Core</option>
+                                                    <option value="Arms">Arms</option>
+                                                    <option value="Legs">Legs</option>
+                                                    <option value="Shoulders">Shoulders</option>
+                                                    <option value="Full body">Full-Body</option>
+                                                    <option value="Chest">Chest</option>
+                                                    <option value="Back">Back</option>
                                                 </Field>
                                                 <ErrorMessage name="muscleGroup" component="div" className="mt-1 text-sm text-red-600" />
                                             </div>
@@ -109,11 +113,16 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
                                                 <label className="block text-sm font-medium text-[#282828]">Units</label>
                                                 <Field
                                                     id='unit'
+                                                    as="select"
                                                     name="unit"
-                                                    placeholder="e.g. Reps"
-                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] placeholder-[#4d4d4d] shadow-sm  sm:text-sm"
-                                                />
-                                                <ErrorMessage name="unit" component="div" className=" text-sm text-red-600" />
+                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] shadow-sm  sm:text-sm"
+                                                >
+                                                    <option value="Kgs">Kgs</option>
+                                                    <option value="lbs">lbs</option>
+                                                    <option value="Bodyweight">Bodyweight</option>
+                                                    <option value="Reps">Reps</option>
+                                                </Field>
+                                                    <ErrorMessage name="unit" component="div" className=" text-sm text-red-600" />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium text-[#282828]">Difficulty</label>
@@ -123,7 +132,6 @@ export default function ExerciseDialog({ open, onClose, onCreated}) {
                                                     name="difficulty"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] shadow-sm sm:text-sm"
                                                 >
-                                                    <option value="" disabled hidden>Select...</option>
                                                     <option value="Beginner">Beginner</option>
                                                     <option value="Intermediate">Intermediate</option>
                                                     <option value="Advanced">Advanced</option>
