@@ -99,6 +99,7 @@ export default function ExerciseDialog({ open, onClose }) {
                                                     name="muscleGroup"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] shadow-sm sm:text-sm"
                                                 >
+                                                    <option value="">Select...</option>
                                                     <option value="Core">Core</option>
                                                     <option value="Arms">Arms</option>
                                                     <option value="Legs">Legs</option>
@@ -117,6 +118,7 @@ export default function ExerciseDialog({ open, onClose }) {
                                                     name="unit"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] shadow-sm  sm:text-sm"
                                                 >
+                                                    <option value="">Select...</option>
                                                     <option value="Kgs">Kgs</option>
                                                     <option value="lbs">lbs</option>
                                                     <option value="Bodyweight">Bodyweight</option>
@@ -132,6 +134,7 @@ export default function ExerciseDialog({ open, onClose }) {
                                                     name="difficulty"
                                                     className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828]] shadow-sm sm:text-sm"
                                                 >
+                                                    <option value="">Select...</option>
                                                     <option value="Beginner">Beginner</option>
                                                     <option value="Intermediate">Intermediate</option>
                                                     <option value="Advanced">Advanced</option>

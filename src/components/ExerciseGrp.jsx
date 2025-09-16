@@ -3,8 +3,9 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headless
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 
+
 export default function ExerciseGrp({
-    groups = ["All", "Core", "Arms", "Legs"],
+    groups,
     value,
     onChange,
     className = "", }) {
@@ -13,7 +14,7 @@ export default function ExerciseGrp({
         <>
             <Listbox value={value} onChange={onChange} >
                 <ListboxButton className={clsx(
-                    'relative w-full bg-[#282828] py-2 pl-4 pr-10 text-left text-sm text-[#f5f5f7] uppercase ',
+                    'relative w-[172px] bg-[#282828] py-2 pl-4 pr-20 text-left text-sm text-[#f5f5f7] uppercase ',
                     'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25 '
                 )}>{value}
                 <ChevronDownIcon
@@ -22,7 +23,7 @@ export default function ExerciseGrp({
                 />
                 </ListboxButton>
                 <ListboxOptions anchor="bottom" transition  className={clsx(
-                        'w-(--button-width) bg-[#282828] pl-4  py-4 [--anchor-gap:--spacing(1)] focus:outline-none uppercase space-y-8 scroll-py-2',
+                        'min-w-[--button-width]', 'bg-[#282828] px-4 items-start py-4 [--anchor-gap:--spacing(1)] focus:outline-none uppercase space-y-8 scroll-py-2',
                         'transition duration-100 ease-in data-leave:data-closed:opacity-0'
                     )}>
                     {groups.map((g) => (

@@ -73,7 +73,7 @@ export default function ExercisePage() {
 
 
     // For filteration tabs
-    const groups = ['all', 'core', 'arms', 'legs'];
+    const groups = ["all", "core", "arms", "legs", "shoulders", "full body", "chest", "back"]
     // for exercise cards
     const filterGrps = isActivitiesGroup === 'all' ? exercises : exercises.filter(ex => (ex.muscleGroup || "").toLowerCase() === isActivitiesGroup);
 
