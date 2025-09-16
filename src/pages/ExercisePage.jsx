@@ -25,6 +25,7 @@ export default function ExercisePage() {
         ))
     }
 
+    // we got the id and pass
     const handleDelete = async (id) => {
         const apiUrl = import.meta.env.VITE_API_URL;
         const prev = exercises;
@@ -36,7 +37,7 @@ export default function ExercisePage() {
             const result = await axios.delete(apiUrl + `/api/users/exercise/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log("ExerciseId: ", exercises._id)
+            console.log("ExerciseId: ", id)
             console.log("Result", result)
             toast.success('Delete Succesfully');
             return result

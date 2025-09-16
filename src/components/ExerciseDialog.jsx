@@ -5,7 +5,7 @@ import axios from "axios";
 import useJwt from "../utils/UserStore";
 import { toast } from "react-toastify";
 
-export default function ExerciseDialog({ open, onClose, onCreated }) {
+export default function ExerciseDialog({ open, onClose }) {
 
     const { getJwt } = useJwt();
 
