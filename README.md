@@ -1,9 +1,10 @@
 # LESSON LEARNT - WORKOUT 
 
-# 1. Sorting Positioning of array
+## 1. Sorting Positioning of array
 <details>
 
 ```js 
+`.SORT`
  setWorkout(response.data.sort((a, b) => {
                 const createdSystem = String(a.createdBy).toLowerCase() === "system";
                 const notSystem = String(b.createdBy).toLowerCase() === "system";
