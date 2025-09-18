@@ -4,7 +4,7 @@
 <details>
 
 ```js 
-`.SORT`
+
  setWorkout(response.data.sort((a, b) => {
                 const createdSystem = String(a.createdBy).toLowerCase() === "system";
                 const notSystem = String(b.createdBy).toLowerCase() === "system";
