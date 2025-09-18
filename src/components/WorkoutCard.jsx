@@ -12,12 +12,9 @@ export default function WorkoutCard({
 ) {
 
     const { date, notes, sets=[], createdBy } = workout;
-    const isSystem = String(createdBy).toLowerCase() === 'system';
+    const isSystem = createdBy.toLowerCase() === 'system';
     const creator = isSystem ? "System" : "You"
     const formattedDate = date ? new Date(date).toLocaleString() : "—";
-
-
-    // here we dod this to create a toast box to ask for double confirmation. where the exercise._id is gotten from the exercisepage
 
     return (
         <>

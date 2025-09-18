@@ -41,8 +41,15 @@ export default function WorkoutPage() {
                         Authorization: `Bearer ${token}`
                     }
                 });
+
             console.log(response.data)
-            setWorkout(response.data);
+            setWorkout(response.data.sort((a, b) => {
+                const createdSystem = String(a.createdBy).toLowerCase() === "system";
+                const notSystem = String(b.createdBy).toLowerCase() === "system";
+                if (createdSystem && !notSystem) return -1;
+                if (!createdSystem && notSystem) return 1;
+            })
+            );
         } catch (e) {
             console.error(e);
         }

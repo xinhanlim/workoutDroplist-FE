@@ -28,7 +28,7 @@ export default function ExerciseDialog({ open, onClose }) {
     const initialValues = {
         "date": new Date(),
         "notes": "",
-        "sets": []
+        "sets": [{exerciseId , weights:"", reps:"", rpe:""}]
     }
 
 
