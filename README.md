@@ -1,10 +1,22 @@
-# Knowledge Learnt
+# LESSON LEARNT - WORKOUT 
+
+# 1. Sorting Positioning of array
+<details>
+```js 
+ setWorkout(response.data.sort((a, b) => {
+                const createdSystem = String(a.createdBy).toLowerCase() === "system";
+                const notSystem = String(b.createdBy).toLowerCase() === "system";
+                if (createdSystem && !notSystem) return -1;
+                if (!createdSystem && notSystem) return 1;
+            })
+```
+</details>
 
 
 
 
 
-# Problems Encountered - LESSON LEARNT
+# LESSON LEARNT - EXERCISE 
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
