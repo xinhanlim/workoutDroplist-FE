@@ -23,7 +23,7 @@ export default function ExerciseGrp({
                 />
                 </ListboxButton>
                 <ListboxOptions anchor="bottom" transition  className={clsx(
-                        'min-w-[--button-width]', 'bg-[#282828] px-4 items-start py-4 [--anchor-gap:--spacing(1)] focus:outline-none uppercase space-y-8 scroll-py-2',
+                        'w-[172px]', 'bg-[#282828] px-4  py-4 [--anchor-gap:--spacing(1)] focus:outline-none uppercase space-y-8 scroll-py-2',
                         'transition duration-100 ease-in data-leave:data-closed:opacity-0'
                     )}>
                     {groups.map((g) => (

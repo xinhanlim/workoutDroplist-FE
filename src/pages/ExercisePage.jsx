@@ -105,7 +105,7 @@ export default function ExercisePage() {
 
                 {/* Exercise Card Area */}
                 <div className="w-full h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-4 border ">
+                    <div className="grid grid-cols-1 md:grid-cols-4 ">
                         {filterGrps.map((fg) => (
                             <ExerciseCard
                                 key={fg._id}

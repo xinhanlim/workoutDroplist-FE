@@ -51,7 +51,7 @@ export default function ExerciseCard({
 
     return (
         <>
-            <div className="flex flex-col border border-[#282828] bg-white p-4 shadow-sm hover:shadow-md transition-shadow ">
+            <div className="flex flex-col border border-[#282828] bg-[#F5F5F7] p-4 shadow-sm hover:shadow-md transition-shadow ">
                 <h3 className="font-semibold py-2 text-[#282828]">Name: {name}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]">Muscle Group: {muscleGroup}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]">Units: {unit}</h3>
