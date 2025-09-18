@@ -76,7 +76,7 @@ export default function WorkoutPage() {
                         + WORKOUT </button>
                 </div>
                 <div className="w-full h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-4 ">
+                    <div className="grid grid-cols-1 md:grid-cols-4">
                         {workout.map((w) => (
                             <WorkoutCard
                                 key={w._id}
