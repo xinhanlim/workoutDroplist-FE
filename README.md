@@ -11,13 +11,13 @@
                 if (!createdSystem && notSystem) return 1;
             })
 ```
-- .sort : For each workout `a` and `b`, check if its `createdBy` === `"system"`.
-          `-1` → put `a` before `b`    
-          if `a` is `system` but `b` is not → **put** `a` **before** `b`.
-           `1` → put `b` before `a`
-          If `a` is **not** `system` but `b` is → put `b` **before** `a`.
-          `0` → keep them in the `same order`
-          If `both are system` or `both are not` → keep the `same order`.
+- `.sort` : For each workout `a` and `b`, check if its `createdBy` === `"system"`.<br>
+          `-1` → put `a` before `b`<br>
+          if `a` is `system` but `b` is not → **put** `a` **before** `b`.<br>
+           `1` → put `b` before `a`<br>
+          If `a` is **not** `system` but `b` is → put `b` **before** `a`.<br>
+          `0` → keep them in the `same order`<br>
+          If `both are system` or `both are not` → keep the `same order`.<br>
           
 
 
