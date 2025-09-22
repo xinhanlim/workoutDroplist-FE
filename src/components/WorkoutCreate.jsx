@@ -15,7 +15,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
         weight: Yup.number()
             .typeError("Weight must be a number")
             .min(0, "Weight cannot be negative")
-            .nullable(), // allow empty == null
+            .nullable(),
         reps: Yup.number()
             .typeError("Reps must be a number")
             .integer("Reps must be an integer")
@@ -91,21 +91,21 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                             {
                                 function (formik) {
                                     return (
-                                        <Form className="flex flex-col min-w-[360px] w-full max-w-md px-2 mx-auto my-8 space-y-8">
+                                        <Form className="flex flex-col w-full max-w-md px-2 mx-auto my-8 space-y-8">
                                             <div>
                                                 <label className="block text-sm font-medium text-[#282828]">Notes</label>
                                                 <Field
                                                     id='notes'
                                                     name="notes"
-                                                    placeholder="e.g. Description of worksout"
-                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] placeholder-[#4d4d4d] shadow-sm  sm:text-sm"
+                                                    placeholder="e.g. Description"
+                                                    className="mt-1 w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] placeholder-[#4d4d4d] shadow-sm  sm:text-sm"
                                                 />
                                                 <ErrorMessage name="notes" component="div" className="text-sm text-red-500 mt-1" />
                                             </div>
                                             <FieldArray name="sets">
                                                 {({ push, remove }) => (
                                                     <>
-                                                        <div className="flex items-center justify-between">
+                                                        <div className="flex items-center justify-between ">
                                                             <label className="block text-sm font-medium text-[#282828]">Sets</label>
                                                             <button
                                                                 type="button"
@@ -119,7 +119,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                         {formik.values.sets.map((_, idx) => (
                                                             <div
                                                                 key={idx}
-                                                                className="grid grid-cols-2 gap-2 md:grid-cols-5 md:gap-3 items-start border border-[#4d4d4d]/10 p-3"
+                                                                className="grid grid-cols-2 gap-4 md:gap-3 items-start border border-[#4d4d4d]/10 p-3"
                                                             >
                                                                 <div className="col-span-2 md:col-span-2">
                                                                     <label className="block text-xs text-[#282828]/80">Exercise</label>
@@ -179,7 +179,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                 </div>
 
                                                                 {/* RPE + Remove */}
-                                                                <div className="flex gap-2 items-end">
+                                                                <div className="col-span-2 flex items-end gap-2">
                                                                     <div className="flex-1">
                                                                         <label className="block text-xs text-[#282828]/80">RPE</label>
                                                                         <Field
@@ -200,7 +200,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                     <button
                                                                         type="button"
                                                                         onClick={() => remove(idx)}
-                                                                        className="self-end px-3 py-2 text-sm ring-1 ring-[#282828] hover:bg-black/5"
+                                                                        className="self-end px-4 py-2 text-sm ring-1 ring-[#282828] hover:bg-black/5"
                                                                     >
                                                                         Remove
                                                                     </button>
