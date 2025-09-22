@@ -69,8 +69,8 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
     return (
         <>
             <Dialog open={open} onClose={onClose} className="relative z-50">
-                <div className="fixed inset-0 flex items-center justify-center p-4 bg-[#282828]/60">
-                    <DialogPanel className="w-full max-w-md border-1 bg-[#f5f5f7] p-6 shadow-xl">
+                <div className="fixed inset-0 flex items-center justify-center p-4 bg-[#282828]/60 ">
+                    <DialogPanel className="w-full  max-h-[80vh]  max-w-md border-1 bg-[#f5f5f7] p-6 shadow-xl overflow-y-auto">
                         <div className="flex items-center justify-between">
                             <DialogTitle className="text-xl font-bold text-[#4d4d4d]  ">Create Workout</DialogTitle>
                             <button
