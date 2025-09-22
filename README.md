@@ -1,9 +1,10 @@
-# LESSON LEARNT - WORKOUT 
+# LESSON LEARNT - WORKOUT
 
 ## 1. Sorting Positioning of array
+
 <details>
 
-```js 
+```js
 
  setWorkout(response.data.sort((a, b) => {
                 const createdSystem = String(a.createdBy).toLowerCase() === "system";
@@ -12,23 +13,51 @@
                 if (!createdSystem && notSystem) return 1;
             })
 ```
-- `.sort` : For each workout `a` and `b`, check if its `createdBy` === `"system"`.<br>
-          `-1` → put `a` before `b`<br>
-          if `a` is `system` but `b` is not → **put** `a` **before** `b`.<br>
-           `1` → put `b` before `a`<br>
-          If `a` is **not** `system` but `b` is → put `b` **before** `a`.<br>
-          `0` → keep them in the `same order`<br>
-          If `both are system` or `both are not` → keep the `same order`.<br>
-          
 
+- `.sort` : For each workout `a` and `b`, check if its `createdBy` === `"system"`.<br>
+  `-1` → put `a` before `b`<br>
+  if `a` is `system` but `b` is not → **put** `a` **before** `b`.<br>
+  `1` → put `b` before `a`<br>
+  If `a` is **not** `system` but `b` is → put `b` **before** `a`.<br>
+  `0` → keep them in the `same order`<br>
+  If `both are system` or `both are not` → keep the `same order`.<br>
 
 </details>
 
+## 2. Usage of `useMemo` from 'react'
 
+`useMemo` calls a function when dependencies change, and memoizes (remembers) the result of the function between renders.
 
+- Cons: `useMemo `takes up more memory in order to free up CPU time. If your app is hammering the CPU with a lot of calculations, that's when you might consider taking up some memory and use useMemo instead.
 
+- When to use ?
+  You're noticing a component's render is frustratingly slow, and you're passing a calculation to an unknowable number of children
+  Your app often becomes unresponsive because you're fetching a large amount of data, and having to transform it into a usable format
+  The key is to focus on the problem.
 
-# LESSON LEARNT - EXERCISE 
+## 3. Understanding Filteration
+
+```js
+const q = query.trim().toLowerCase();
+const hasText = (t) => (t || "").toLowerCase().includes(q);
+
+const filterWorkout = 
+  : workout.filter((w) => {
+      const nameMatch = hasText(w.name);
+      const notesMatch = hasText(w.notes);
+      const setsMatch =
+        Array.isArray(w.sets) && w.sets.some((s) => hasText(s.name));
+      return nameMatch || notesMatch || setsMatch;
+    });
+```
+- `const q` is to search text lowercase "eg. squats"
+- `const hastext = (t)...` is to return true / false is q is found inside (t)
+- `const nameMatch = hasText(w.name);` is to find say "Legs Day, the user type leg, it will show up result with legs equivalent
+- `w.sets.some` basically is to go thru each item in sets and check if it's exercise name is matches the search. so say if q = squ , and the exercise has squats,
+it will become true which lead to the final part .
+- returning `namematch` `OR` `notesMatch` `OR` `setsMatch`
+
+# LESSON LEARNT - EXERCISE
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
@@ -115,12 +144,14 @@ const groups = ["all", "core", "arms", "legs"];
 - thus `CORE` tab will be `className="font-bold text-[#282828] uppercase"` while the rest of `ALL,ARMS,LEGS` will be `"text-gray-500 hover:text-[#111827] uppercase"`
 
 How the 4 buttons show up ?
+
 ```js
 const groups = ["all", "core", "arms", "legs"];
 {groups.map((g) => (<button>...) -{g} </button>;}
 ```
+
 - the array holds 4 tabs in groups.
-- the map function take each item as a variable `(g)` and create each button for it 
+- the map function take each item as a variable `(g)` and create each button for it
 - first item : `g ='all'` and create a button for it -> `<button> -'all'<button>`, and so fore till `LEGS` button.
 
 </details>
