@@ -19,11 +19,8 @@ export default function WorkoutEdit({ open, onClose, onUpdated,  workout, exerci
         reps: Yup.number()
             .typeError("Reps must be a number")
             .integer("Reps must be an integer")
-            .min(1, "Reps must be at least 1")
-            .required("Reps is required"),
-        rpe: Yup.number()
-            .typeError("RPE must be a number")
-            .min(1).max(10)
+            .nullable(),
+        timing: Yup.string()
             .nullable(),
     });
 

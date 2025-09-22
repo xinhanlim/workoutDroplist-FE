@@ -19,11 +19,8 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
         reps: Yup.number()
             .typeError("Reps must be a number")
             .integer("Reps must be an integer")
-            .min(1, "Reps must be at least 1")
-            .required("Reps is required"),
-        rpe: Yup.number()
-            .typeError("RPE must be a number")
-            .min(1).max(10)
+            .nullable(),
+        timing: Yup.string()
             .nullable(),
     });
 
@@ -37,7 +34,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
     const initialValues = {
         "date": new Date(),
         "notes": "",
-        "sets": [{ name: "", weight: "", reps: "", rpe: "" }]
+        "sets": [{ name: "", weight: "", reps: "", timing: "" }]
     }
 
 
@@ -108,7 +105,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                             <button
                                                                 type="button"
                                                                 className="px-3 py-1 text-sm ring-1 ring-[#282828] hover:bg-black/5"
-                                                                onClick={() => push({ name: "", weight: "", reps: "", rpe: "" })}
+                                                                onClick={() => push({ name: "", weight: "", reps: "", timing: "" })}
                                                             >
                                                                 + Add Set
                                                             </button>
@@ -140,7 +137,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                     />
                                                                 </div>
 
-                                                                {/* Weight */}
+
                                                                 <div>
                                                                     <label className="block text-xs text-[#282828]/80">Weight</label>
                                                                     <Field
@@ -158,7 +155,6 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                     />
                                                                 </div>
 
-                                                                {/* Reps */}
                                                                 <div>
                                                                     <label className="block text-xs text-[#282828]/80">Reps</label>
                                                                     <Field
@@ -176,7 +172,6 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                     />
                                                                 </div>
 
-                                                                {/* RPE + Remove */}
                                                                 <div className="col-span-2 flex items-end gap-2">
                                                                     <div className="flex-1">
                                                                         <label className="block text-xs text-[#282828]/80">Timing</label>
@@ -187,7 +182,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                                             className="mt-1 block w-full border border-[#4d4d4d]/20 px-2 py-2 text-[#282828] sm:text-sm"
                                                                         />
                                                                         <ErrorMessage
-                                                                            name={`sets[${idx}].rpe`}
+                                                                            name={`sets[${idx}].timing`}
                                                                             component="div"
                                                                             className="text-xs text-red-600 mt-1"
                                                                         />
