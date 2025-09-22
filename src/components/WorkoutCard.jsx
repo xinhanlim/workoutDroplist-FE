@@ -65,7 +65,7 @@ export default function WorkoutCard({
                                     <span><span className="text-[#282828]/60">Exercise: </span><b>{s.name}</b></span>
                                     <span><span className="text-[#282828]/60">Weight: </span> <b>{s.weight}</b></span>
                                     <span><span className="text-[#282828]/60">Reps: </span> <b>{s.reps}</b></span>
-                                    <span><span className="text-[#282828]/60">RPE: </span> <b>{s.rpe}</b></span>
+                                    <span><span className="text-[#282828]/60">Timing: </span> <b>{s.timing}</b></span>
                                 </li>
                             ))}
                         </ul>

@@ -185,18 +185,15 @@ export default function WorkoutEdit({ open, onClose, onUpdated,  workout, exerci
                                                                 {/* RPE + Remove */}
                                                                 <div className="col-span-2 flex items-end gap-2">
                                                                     <div className="flex-1">
-                                                                        <label className="block text-xs text-[#282828]/80">RPE</label>
+                                                                        <label className="block text-xs text-[#282828]/80">Timings(s)</label>
                                                                         <Field
-                                                                            name={`sets[${idx}].rpe`}
-                                                                            type="number"
-                                                                            min="1"
-                                                                            max="10"
-                                                                            step="1"
-                                                                            placeholder="e.g. 7"
+                                                                            name={`sets[${idx}].timing`}
+                                                                            id ="timing"
+                                                                            placeholder="e.g. 15mins20sec"
                                                                             className="mt-1 block w-full border border-[#4d4d4d]/20 px-2 py-2 text-[#282828] sm:text-sm"
                                                                         />
                                                                         <ErrorMessage
-                                                                            name={`sets[${idx}].rpe`}
+                                                                            name={`sets[${idx}].timing`}
                                                                             component="div"
                                                                             className="text-xs text-red-600 mt-1"
                                                                         />
