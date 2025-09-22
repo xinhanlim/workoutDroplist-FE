@@ -24,7 +24,6 @@ export default function WorkoutSearch(
                     [&::-webkit-search-results-button]:hidden
                     [&::-webkit-search-results-decoration]:hidden"
                     placeholder="Search workouts…"
-                    aria-label="Search workouts"
                 />
 
                 {value && (

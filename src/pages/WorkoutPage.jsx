@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 import WorkoutSearch from '../components/WorkoutSearch'
@@ -58,6 +58,18 @@ export default function WorkoutPage() {
         getExercise(), getWorkout()
     }, []);
 
+    const filterWorkout = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        const hasText = (t) => (t || "").toLowerCase().includes(q)
+
+        return workout.filter(w => {
+            const nameSearch = hasText(w.name);
+            const noteSearch = hasText(w.notes);
+            const setsMatch = Array.isArray(w.sets) && w.sets.some(s => hasText(s.name));
+            return nameSearch || noteSearch || setsMatch;
+        })
+    }, [workout, query])
+
     return (
         <>
             <Navbar />
@@ -75,16 +87,16 @@ export default function WorkoutPage() {
                     <button type="submit" className="bg-[#282828] px-4 py-2 text-sm md:text-lg text-[#f5f5f7] cursor-pointer hover:bg-[#4d4d4d]" onClick={() => setIsOpen(true)}>
                         + WORKOUT </button>
                 </div>
-                <div className="w-full h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-4">
-                        {workout.map((w) => (
-                            <WorkoutCard
-                                key={w._id}
-                                workout={w}
-                                exercises={exercises}
-                            />
-                        ))}
-                    </div>
+                <div className="w-full">
+                        {filterWorkout.length === 0 ? (
+                            <div className="px-4 py-10 text-center text-[#282828]/70">
+                                No workouts match “{query}”.
+                            </div>) : (
+                            <div className="grid grid-cols-1 md:grid-cols-4">
+                                {filterWorkout.map((w) => (
+                                    <WorkoutCard key={w._id} workout={w} exercises={exercises} />
+                                ))}
+                            </div> )}
                 </div>
             </div>
 

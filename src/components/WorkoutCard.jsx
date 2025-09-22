@@ -18,7 +18,7 @@ export default function WorkoutCard({
 
     return (
         <>
-            <div className="flex flex-col border border-[#282828] bg-[#F5F5F7] p-4 shadow-sm hover:shadow-md transition-shadow gap-0 justify-between min-h-[426px] ">
+            <div className="flex flex-col border border-[#282828] bg-[#F5F5F7] p-4 shadow-sm hover:shadow-md transition-shadow gap-0 justify-between min-h-[426px] min-w-[380px] ">
                 <div>
                 <h3 className="font-semibold py-2 text-[#282828]">Date: {formattedDate}</h3>
                 <h3 className="font-semibold py-2 text-[#282828]">Notes: {notes}</h3>
