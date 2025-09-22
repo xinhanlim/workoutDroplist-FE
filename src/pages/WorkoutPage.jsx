@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
 import WorkoutSearch from '../components/WorkoutSearch'
@@ -6,6 +6,8 @@ import WorkoutCard from '../components/WorkoutCard'
 import useJwt from '../utils/UserStore'
 import axios from 'axios'
 import WorkoutDialog from '../components/WorkoutCreate'
+import { toast } from 'react-toastify'
+
 
 
 export default function WorkoutPage() {
@@ -20,6 +22,27 @@ export default function WorkoutPage() {
         setWorkout((prevArray) => (
             prevArray.map(w => (w._id === updated._id? { ...w, ...updated } : w))));
     };
+
+     const handleDelete = async (id) => {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const prev = workout;
+        setWorkout(xs => xs.filter(x => x._id !== id));
+        console.log("Current Array Of Exercise: ", prev)
+
+        try {
+            const token = getJwt();
+            const result = await axios.delete(apiUrl + `/api/users/workout/delete/${id}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            console.log("workoutId: ", id)
+            console.log("Result", result)
+            toast.success('Delete Succesfully');
+            return result
+        } catch (e) {
+            console.error(e);
+            setWorkout(prev)
+        }
+    }
 
     const getExercise = async () => {
         try {
@@ -98,7 +121,7 @@ export default function WorkoutPage() {
                         </div>) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
                             {filterWorkout.map((w) => (
-                                <WorkoutCard key={w._id} workout={w} exercises={exercises} onEdit={handleEdit}/>
+                                <WorkoutCard key={w._id} workout={w} exercises={exercises} onEdit={handleEdit} onDelete={handleDelete}/>
                             ))}
                         </div>)}
                 </div>
