@@ -58,17 +58,16 @@ export default function WorkoutPage() {
         getExercise(), getWorkout()
     }, []);
 
-    const filterWorkout = useMemo(() => {
-        const q = query.trim().toLowerCase();
-        const hasText = (t) => (t || "").toLowerCase().includes(q)
+    const q = query.trim().toLowerCase();
+    const hasText = (t) => (t || "").toLowerCase().includes(q)
 
-        return workout.filter(w => {
-            const nameSearch = hasText(w.name);
-            const noteSearch = hasText(w.notes);
-            const setsMatch = Array.isArray(w.sets) && w.sets.some(s => hasText(s.name));
-            return nameSearch || noteSearch || setsMatch;
-        })
-    }, [workout, query])
+    const filterWorkout = workout.filter((w) => {
+        const nameMatch = hasText(w.name);
+        const notesMatch = hasText(w.notes);
+        const setsMatch = Array.isArray(w.sets) && w.sets.some((s) => hasText(s.name));
+        return nameMatch || notesMatch || setsMatch;
+    })
+
 
     return (
         <>
@@ -88,15 +87,15 @@ export default function WorkoutPage() {
                         + WORKOUT </button>
                 </div>
                 <div className="w-full">
-                        {filterWorkout.length === 0 ? (
-                            <div className="px-4 py-10 text-center text-[#282828]/70">
-                                No workouts match “{query}”.
-                            </div>) : (
-                            <div className="grid grid-cols-1 md:grid-cols-4">
-                                {filterWorkout.map((w) => (
-                                    <WorkoutCard key={w._id} workout={w} exercises={exercises} />
-                                ))}
-                            </div> )}
+                    {filterWorkout.length === 0 ? (
+                        <div className="px-4 py-10 text-center text-[#282828]/70">
+                            No workouts match “{query}”.
+                        </div>) : (
+                        <div className="grid grid-cols-1 md:grid-cols-4">
+                            {filterWorkout.map((w) => (
+                                <WorkoutCard key={w._id} workout={w} exercises={exercises} />
+                            ))}
+                        </div>)}
                 </div>
             </div>
 
