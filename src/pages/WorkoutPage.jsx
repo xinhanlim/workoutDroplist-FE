@@ -5,6 +5,7 @@ import WorkoutSearch from '../components/WorkoutSearch'
 import WorkoutCard from '../components/WorkoutCard'
 import useJwt from '../utils/UserStore'
 import axios from 'axios'
+import WorkoutDialog from '../components/WorkoutCreate'
 
 
 export default function WorkoutPage() {
@@ -12,6 +13,7 @@ export default function WorkoutPage() {
     const [query, setQuery] = useState("");
     const [workout, setWorkout] = useState([]);
     const [exercises, setExercises] = useState([]);
+    const [isOpen, setIsOpen] = useState(false)
     const { getJwt } = useJwt();
 
     const getExercise = async () => {
@@ -91,12 +93,23 @@ export default function WorkoutPage() {
                         <div className="px-4 py-10 text-center text-[#282828]/70">
                             No workouts match “{query}”.
                         </div>) : (
-                        <div className="grid grid-cols-1 md:grid-cols-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
                             {filterWorkout.map((w) => (
                                 <WorkoutCard key={w._id} workout={w} exercises={exercises} />
                             ))}
                         </div>)}
                 </div>
+                {/* For + Modal Opening */}
+                {isOpen && (
+                    <WorkoutDialog
+                        open={isOpen}
+                        onClose={() => {
+                            setIsOpen(false);
+                            getWorkout();
+                        }} 
+                        exercises={exercises}
+                    />
+                    )}
             </div>
 
         </>
