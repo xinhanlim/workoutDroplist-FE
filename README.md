@@ -26,6 +26,8 @@
 
 ## 2. Usage of `useMemo` from 'react'
 
+<details>
+
 `useMemo` calls a function when dependencies change, and memoizes (remembers) the result of the function between renders.
 
 - Cons: `useMemo `takes up more memory in order to free up CPU time. If your app is hammering the CPU with a lot of calculations, that's when you might consider taking up some memory and use useMemo instead.
@@ -35,7 +37,11 @@
   Your app often becomes unresponsive because you're fetching a large amount of data, and having to transform it into a usable format
   The key is to focus on the problem.
 
+</details>  
+
 ## 3. Understanding Filteration
+
+<details>
 
 ```js
 const q = query.trim().toLowerCase();
@@ -56,6 +62,8 @@ const filterWorkout =
 - `w.sets.some` basically is to go thru each item in sets and check if it's exercise name is matches the search. so say if q = squ , and the exercise has squats,
 it will become true which lead to the final part .
 - returning `namematch` `OR` `notesMatch` `OR` `setsMatch`
+
+</details>
 
 # LESSON LEARNT - EXERCISE
 
