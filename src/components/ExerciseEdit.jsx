@@ -41,12 +41,10 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
                     }
                 }
             )
-            console.log("exercise._id update : ", exercise._id)
             toast.success('Exercise Updated Successfully');
             formikHelpers.resetForm();
             const updated = response.data
             onUpdated(updated);
-            console.log("Updated", updated)
             onClose();
 
         } catch (e) {

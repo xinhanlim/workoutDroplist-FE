@@ -16,6 +16,11 @@ export default function WorkoutPage() {
     const [isOpen, setIsOpen] = useState(false)
     const { getJwt } = useJwt();
 
+    const handleEdit = (updated) => {
+        setWorkout((prevArray) => (
+            prevArray.map(w => (w._id === updated._id? { ...w, ...updated } : w))));
+    };
+
     const getExercise = async () => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
@@ -36,7 +41,6 @@ export default function WorkoutPage() {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const token = getJwt();
-            console.log(token);
             const response = await axios.get(apiUrl + '/api/users/workout',
                 {
                     headers: {
@@ -44,12 +48,11 @@ export default function WorkoutPage() {
                     }
                 });
 
-            console.log(response.data)
             setWorkout(response.data.sort((a, b) => {
-                const createdSystem = String(a.createdBy).toLowerCase() === "system";
-                const notSystem = String(b.createdBy).toLowerCase() === "system";
-                if (createdSystem && !notSystem) return -1;
-                if (!createdSystem && notSystem) return 1;
+                const createdSystem = String(a.createdBy).toLowerCase() === "system"
+                const notSystem = String(b.createdBy).toLowerCase() === "system"
+                if (createdSystem && !notSystem) return -1
+                if (!createdSystem && notSystem) return 1
             })
             );
         } catch (e) {
@@ -95,7 +98,7 @@ export default function WorkoutPage() {
                         </div>) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
                             {filterWorkout.map((w) => (
-                                <WorkoutCard key={w._id} workout={w} exercises={exercises} />
+                                <WorkoutCard key={w._id} workout={w} exercises={exercises} onEdit={handleEdit}/>
                             ))}
                         </div>)}
                 </div>
@@ -106,10 +109,10 @@ export default function WorkoutPage() {
                         onClose={() => {
                             setIsOpen(false);
                             getWorkout();
-                        }} 
+                        }}
                         exercises={exercises}
                     />
-                    )}
+                )}
             </div>
 
         </>

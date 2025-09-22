@@ -5,7 +5,7 @@ import axios from "axios";
 import useJwt from "../utils/UserStore";
 import { toast } from "react-toastify";
 
-export default function WorkoutDialog({ open, onClose, exercises = [] }) {
+export default function WorkoutEdit({ open, onClose, onUpdated,  workout, exercises = [] }) {
 
     const { getJwt } = useJwt();
     const allowed = exercises.map(e => e.name);
@@ -30,34 +30,38 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
     const validationSchema = Yup.object({
         notes: Yup.string().trim().required("Notes is required"),
         sets: Yup.array()
-            .of(setSchema).min(1, "Add at least one set").required("Sets are required"),
+            .of(setSchema)
+            .min(1, "Add at least one set")
+            .required("Sets are required"),
     });
 
-
     const initialValues = {
-        "date": new Date(),
-        "notes": "",
-        "sets": [{ name: "", weight: "", reps: "", rpe: "" }]
+        date: new Date(),
+        notes: workout.notes,
+        sets: workout.sets.map((idx) => ({
+            name: idx.name,
+            weight: idx.weight,
+            reps: idx.reps,
+            rpe: idx.rpe
+        }))
     }
-
 
     const handleSubmit = async (values, formikHelpers) => {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const token = getJwt();
-            const response = await axios.post(apiUrl + `/api/users/workout/new`, values,
+            const response = await axios.put(apiUrl + `/api/users/workout/update/${workout._id}`, values,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 }
             )
-            console.log(values)
-            toast.success('Workout Created Successfully');
+            toast.success('Exercise Updated Successfully');
             formikHelpers.resetForm();
+            const updated = response.data;
+            onUpdated(updated);
             onClose();
-            return response.data
-
         } catch (e) {
             console.error(e);
             toast.warn("Error creating Workout, Please Check the Fields")
@@ -72,7 +76,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                 <div className="fixed inset-0 flex items-center justify-center p-4 bg-[#282828]/60">
                     <DialogPanel className="w-full max-w-md border-1 bg-[#f5f5f7] p-6 shadow-xl">
                         <div className="flex items-center justify-between">
-                            <DialogTitle className="text-xl font-bold text-[#4d4d4d]  ">Create Workout</DialogTitle>
+                            <DialogTitle className="text-xl font-bold text-[#4d4d4d]  ">Update Workout</DialogTitle>
                             <button
                                 onClick={onClose}
                                 className="text-gray-500 hover:text-gray-800"
@@ -83,8 +87,10 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                         </div>
                         <Formik
                             initialValues={initialValues}
+                            enableReinitialize
                             validationSchema={validationSchema}
                             onSubmit={handleSubmit}
+
                         >
                             {
                                 function (formik) {
@@ -212,7 +218,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                                                 type="submit"
                                                 className="w-full cursor-pointer  bg-[#282828] px-4 py-2 text-[#F5F5F7] font-medium shadow hover:bg-[#4d4d4d]"
                                                 disabled={formik.isSubmitting}
-                                            > Create Workout
+                                            > Update Workout
                                             </button>
                                         </Form>
                                     )

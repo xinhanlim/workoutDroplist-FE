@@ -76,7 +76,7 @@ export default function ExerciseCard({
                             onClose={() => setIsEdit(false)}
                             onUpdated={(updated) => {
                                 onEdit(updated),
-                                    setIsEdit(false)
+                                setIsEdit(false)
                             }}
                         />
                     </div>
