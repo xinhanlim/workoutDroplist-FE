@@ -11,7 +11,7 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
     const allowed = exercises.map(e => e.name);
 
     const setSchema = Yup.object({
-        name: Yup.string().oneOf(allowed, "Exercise not in list").required(),
+        name: Yup.string().oneOf(allowed, "Exercise not in list").required("Name is required"),
         weight: Yup.number()
             .typeError("Weight must be a number")
             .min(0, "Weight cannot be negative")

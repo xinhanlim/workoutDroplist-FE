@@ -16,8 +16,6 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
             .oneOf(["core", "arms", "legs", "chest", "shoulders", "full body", "back"])
             .required("Pick a group"),
 
-        unit: Yup.string().required("Units are required"),
-
         difficulty: Yup.string()
             .oneOf(["Beginner", "Intermediate", "Advanced"], "Pick valid difficulty")
             .required("Difficulty is required")
@@ -25,7 +23,6 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
     const initialValues = {
         "name": exercise.name,
         "muscleGroup": exercise.muscleGroup,
-        "unit": exercise.unit,
         "difficulty": exercise.difficulty
     }
 
@@ -109,21 +106,7 @@ export default function ExerciseEdit({ open, onClose, onUpdated, exercise }) {
                                                 </Field>
                                                 <ErrorMessage name="muscleGroup" component="div" className="mt-1 text-sm text-red-600" />
                                             </div>
-                                            <div>
-                                                <label className="block text-sm font-medium text-[#282828]">Units</label>
-                                                <Field
-                                                    id='unit'
-                                                    as="select"
-                                                    name="unit"
-                                                    className="mt-1 block w-full border border-[#4d4d4d]/20 px-3 py-2 text-[#282828] shadow-sm  sm:text-sm"
-                                                >
-                                                <option value="Kgs">Kgs</option>
-                                                <option value="lbs">lbs</option>
-                                                <option value="Bodyweight">Bodyweight</option>
-                                                <option value="Reps">Reps</option>
-                                                </Field>
-                                                <ErrorMessage name="unit" component="div" className=" text-sm text-red-600" />
-                                            </div>
+                                        
                                             <div>
                                                 <label className="block text-sm font-medium text-[#282828]">Difficulty</label>
                                                 <Field
