@@ -53,8 +53,8 @@ export default function LoginPage() {
                                 function (formik) {
                                     return (
                                         <Form className="flex flex-col min-w-[360px] w-full max-w-md p-8 mx-auto my-12 space-y-8">
-                                            <p className="text-[64px] text-[##282828] ">W O R K O U T  G A M I F I E D W O R K</p>
-                                            <p className="text-sm text-[#4d4d4d] text-center">Login to continue to WorkOutGamified</p>
+                                            <p className="text-[64px] text-[##282828] ">W O R K O U T D R O P L I S T W O R K</p>
+                                            <p className="text-sm text-[#4d4d4d] text-center">Login to continue to WorkOutDropList</p>
 
                                             <div className="space-y-3">
                                                 <label className="block text-sm font-medium text-[#282828]">

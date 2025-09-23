@@ -60,13 +60,13 @@ export default function RegisterPage() {
                             {
                                 (formik) => (<Form className="flex flex-col min-w-[360px] w-full max-w-md p-8 mx-auto my-12 space-y-8">
                                     <div>
-                                        <p className="text-[64px] ">W O R K O U T  G A M I F I E D W O R K</p>
+                                        <p className="text-[64px] ">W O R K O U T  D R O P L I S T W O R K</p>
                                         <p className="text-sm text-gray-500 text-center">THANKS FOR CHOOSING US</p>
                                     </div>
 
                                     <div>
                                         <label htmlFor="displayName" className="block text-sm font-medium text-[#4d4d4d]" >Display Name:</label>
-                                        <Field type="text" id="displayName" name="displayName" className="mt-1 block w-full borderborder-[#4d4d4d]/20 px-3 py-2text-[#282828 placeholder-[#4d4d4d] shadow-sm sm:text-sm" />
+                                        <Field type="text" id="displayName" name="displayName" className="mt-1 block w-full borderborder-[#4d4d4d]/20 px-3 py-2 text-[#282828 placeholder-[#4d4d4d] shadow-sm sm:text-sm" />
                                         {formik.errors.displayName && formik.touched.displayName && <div className="text-sm text-red-600">{formik.errors.displayName}</div>}
                                     </div>
                                     <div>
