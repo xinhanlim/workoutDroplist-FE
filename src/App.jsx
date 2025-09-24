@@ -10,6 +10,7 @@ import WorkoutPage from './pages/WorkoutPage';
 import useJwt from './utils/UserStore'
 
 export default function App() {
+  
   const { ensureFresh } = useJwt();
   useEffect(() => {
     ensureFresh();

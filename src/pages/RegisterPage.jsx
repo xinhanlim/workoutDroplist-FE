@@ -32,10 +32,8 @@ export default function RegisterPage() {
     }
 
     const handleSubmit = async (values, formikHelpers) => {
-        console.log("CLICK SUBMIT")
-        console.log("submitted values", values);
         try {
-            const response = await axios.post(import.meta.env.VITE_API_URL + '/register', values);
+            const response = await axios.post(import.meta.env.VITE_API_URL + '/api/users/register', values);
             if (response.status == 200) {
                 setLocation("/login");
             }
