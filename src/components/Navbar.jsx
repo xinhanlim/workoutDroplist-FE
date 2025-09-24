@@ -18,7 +18,7 @@ export default function Navbar() {
 
     const handleLogout = () => {
         clearJwt(token),
-            setLocation('/login')
+        setLocation('/login')
         toast.info("You Have Logout Successfully")
 
     }
@@ -65,15 +65,13 @@ export default function Navbar() {
             </nav>
             {isNavbarOpen && (
                 <div className="fixed inset-0 z-40 md:hidden">
-                    {/* Dim background */}
                     <div
                         className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"
                         onClick={() => setNavbarOpen(false)}
                         aria-hidden="true"
                     />
-                    {/* Sheet under the navbar */}
+                    {/* dropdown */}
                     <div className="absolute inset-x-0 top-0 bg-[#F5F5F7] shadow-sm">
-                        {/* Spacer to avoid sitting under the fixed nav (h-14 = nav height) */}
                         <div className="h-screen items-center justify-center">
                             {token ? (
                                 <>

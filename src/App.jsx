@@ -10,14 +10,10 @@ import WorkoutPage from './pages/WorkoutPage';
 import useJwt from './utils/UserStore'
 
 export default function App() {
-
-  const { parseJwt } = useJwt();
-
-  useEffect(()=>{
-    const token = parseJwt;
-
-})
-
+  const { ensureFresh } = useJwt();
+  useEffect(() => {
+    ensureFresh();
+  }, []);
 
   return (<>
     <ToastContainer
@@ -38,8 +34,8 @@ export default function App() {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/profile" component={ProfilePage} />
-      <Route path="/exercise" component={ExercisePage}/>
-      <Route path="/workout" component={WorkoutPage}/>
+      <Route path="/exercise" component={ExercisePage} />
+      <Route path="/workout" component={WorkoutPage} />
     </Switch>
   </>)
 }

@@ -60,7 +60,7 @@ export default function RegisterPage() {
                             {
                                 (formik) => (<Form className="flex flex-col min-w-[360px] w-full max-w-md p-8 mx-auto my-12 space-y-8">
                                     <div>
-                                        <p className="text-[64px] ">W O R K O U T  D R O P L I S T W O R K</p>
+                                        <p className="text-[64px] ">W O R K O U T D R O P L I S T W O R K</p>
                                         <p className="text-sm text-gray-500 text-center">THANKS FOR CHOOSING US</p>
                                     </div>
 

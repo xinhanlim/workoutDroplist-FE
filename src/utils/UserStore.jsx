@@ -2,6 +2,14 @@ import { atom, useAtom } from 'jotai'
 import { jwtDecode } from 'jwt-decode';
 const jwtAtom = atom('');
 
+function isTokenExpired() {
+    const token = localStorage.getItem('jwt');
+    const decoded = token ? jwtDecode(token) : null;
+    if (!decoded || !decoded.exp) return false;          // treat no exp as "not expired"
+    const now = Math.floor(Date.now() / 1000);   // seconds
+    return decoded.exp <= now;
+}
+
 export default function useJwt() {
     const [jwt, setJwtAtom] = useAtom(jwtAtom)
 
@@ -42,6 +50,11 @@ export default function useJwt() {
         return id
     }
 
+    const isExpired = () => isTokenExpired(getJwt());
+    const ensureFresh = () => {
+        if (isExpired()) clearJwt();
+    };
 
-    return { setJwt, getJwt, clearJwt, decodeJwtDisplayName, decodeJwtId };
+
+    return { setJwt, getJwt, clearJwt, decodeJwtDisplayName, decodeJwtId, isExpired, ensureFresh };
 }
