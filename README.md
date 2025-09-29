@@ -40,13 +40,14 @@ npm install
 Vite exposes only variables starting with VITE_.
 
 - Codespace:
- VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
+
+VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
 
 - Production (Vercel + Render) – in Vercel → Project → Settings → Environment Variables:
- VITE_API_URL = https://workoutdroplist-be.onrender.com
+
+VITE_API_URL = https://workoutdroplist-be.onrender.com
 
 ## Run Command
-
 - npm run dev
 
 # Screenshot
