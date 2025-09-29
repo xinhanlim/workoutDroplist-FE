@@ -68,7 +68,7 @@ Value: https://workoutdroplist-be.onrender.com
 
 ## 1. Sorting Positioning of array
 
-<details>
+<details><summary>Expand<summary>
 
 ```js
 
