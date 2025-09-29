@@ -53,7 +53,7 @@ npm install
 # Screenshot
 - Live Demo: https://workout-droplist-fe.vercel.app
 
-<img src="public/Project1Photo.png" alt="App Screenshot" width="600"/>
+<img src="public/Project1Photo.jpg" alt="App Screenshot" width="600"/>
 
 # Contact
 - Portfolio: [vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
