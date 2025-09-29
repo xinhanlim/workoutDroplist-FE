@@ -68,7 +68,7 @@ Value: https://workoutdroplist-be.onrender.com
 
 ## 1. Sorting Positioning of array
 
-<details><summary>Expand<summary>
+<details><summary>Expand</summary>
 
 ```js
 
@@ -136,7 +136,7 @@ const filterWorkout =
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
-<details>
+<details><summmary>Expand</summary>
 
 ```js
 const [exercises, setExercises] = useState([]);
