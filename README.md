@@ -1,10 +1,11 @@
 # Workout Droplist — Frontend
+
 - Front-end workout list for personal workout tracking.
 - Back-end: https://github.com/xinhanlim/workoutDroplist-BE
 - Live Demo: https://workout-droplist-fe.vercel.app
 
-
 ## Features:
+
 - Full **CRUD functionality** for workouts and exercises
 - **Exercise filtering** by muscle group
 - **Workout search bar** for quick access
@@ -14,17 +15,21 @@
 - **User-specific tagging** — workouts and exercises created by a user are securely linked to their account via JWT
 
 ## Tech Stack:
+
 - Frontend: React, Tailwind CSS, Wouter, jwt-decode
 - Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt
 - Tools: Axios, Formik + Yup, React-Toastify, Jotai
 
 ## Getting Started
+
 ### Clone the repo
+
 ```bash
 # HTTPS
 git clone https://github.com/xinhanlim/workoutDroplist-FE.git
 cd workoutDroplist-FE
 ```
+
 ```bash
 # SSH
 git clone git@github.com:xinhanlim/workoutDroplist-FE.git
@@ -32,36 +37,43 @@ cd workoutDroplist-FE
 ```
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Environment Variables
+
 Vite exposes only variables starting with `VITE_`.
 
 - **Local (Codespaces)** — create a `.env` file in the frontend root:
+
 ```env
 VITE_API_URL=https://<your-codespaces-backend>.github.dev
 # Codespaces generates a new URL each session — replace the placeholder with your current backend URL.
 ```
 
 - Production (Vercel + Render) – in Vercel → Project → Settings → Environment Variables:
+
 ```.env
-Key : VITE_API_URL 
+Key : VITE_API_URL
 Value: https://workoutdroplist-be.onrender.com
 ```
 
 ## Run Command
+
 ```bash
 npm run dev
 ```
 
 # Screenshot
+
 - Live Demo: https://workout-droplist-fe.vercel.app
 
 ![Live Demo](public/Project1Photo.jpg)
 
 # Contact
+
 - Portfolio Website: [portfolio-sooty-delta-wdgwgb0mnz.vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
@@ -73,13 +85,14 @@ npm run dev
 <details><summary>Expand</summary>
 
 ```js
-
- setWorkout(response.data.sort((a, b) => {
-                const createdSystem = String(a.createdBy).toLowerCase() === "system";
-                const notSystem = String(b.createdBy).toLowerCase() === "system";
-                if (createdSystem && !notSystem) return -1;
-                if (!createdSystem && notSystem) return 1;
-            })
+setWorkout(
+  response.data.sort((a, b) => {
+    const createdSystem = String(a.createdBy).toLowerCase() === "system";
+    const notSystem = String(b.createdBy).toLowerCase() === "system";
+    if (createdSystem && !notSystem) return -1;
+    if (!createdSystem && notSystem) return 1;
+  })
+);
 ```
 
 - `.sort` : For each workout `a` and `b`, check if its `createdBy` === `"system"`.<br>
@@ -108,15 +121,14 @@ npm run dev
 </details>
 
 ## 3. Understanding Filtering
- 
+
 <details><summary>Expand</summary>
 
 ```js
 const q = query.trim().toLowerCase();
 const hasText = (t) => (t || "").toLowerCase().includes(q);
 
-const filterWorkout =
-  : workout.filter((w) => {
+const filterWorkout = workout.filter((w) => {
       const nameMatch = hasText(w.name);
       const notesMatch = hasText(w.notes);
       const setsMatch =
