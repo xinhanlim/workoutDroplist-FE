@@ -1,10 +1,9 @@
-# Project Title: Workout Drop List Front End-
-- Front-end WORKOUT list for personal workout tracking.
+# Workout Droplist — Frontend
+- Front-end workout list for personal workout tracking.
 - Live Demo: https://workout-droplist-fe.vercel.app
 - Back-end: https://github.com/xinhanlim/workoutDroplist-BE
 
-# Features:
-
+## Features:
 - Full **CRUD functionality** for workouts and exercises
 - **Exercise filtering** by muscle group
 - **Workout search bar** for quick access
@@ -13,42 +12,36 @@
 - **User authentication** with JWT-based login
 - **User-specific tagging** — workouts and exercises created by a user are securely linked to their account via JWT
 
-# Tech Stack:
-
-
-- Frontend: React, Tailwind CSS, Wouter,  JWT-DECODE 
-- Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt, JWT-DECODE
+## Tech Stack:
+- Frontend: React, Tailwind CSS, Wouter, jwt-decode
+- Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt
 - Tools: Axios, Formik + Yup, React-Toastify, Jotai
 
-
-# Getting Started
-
-<details>
-## Clone the repo
+## Getting Started
+### Clone the repo
 ```bash
 # HTTPS
 git clone https://github.com/xinhanlim/workoutDroplist-FE.git
 cd workoutDroplist-FE
 ```
-- SSH
 ```bash
+# SSH
 git clone git@github.com:xinhanlim/workoutDroplist-FE.git
 cd workoutDroplist-FE
 ```
-## Install Dependencies
+
+### Install Dependencies
 ```bash
 npm install
 ```
 
-## Environment variables
-
+### Environment variables
 - Codespace: VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
 - Render: VITE_API_URL = https://workoutdroplist-be.onrender.com
 
 ## Run Command
 
 - npm run dev
-</details>
 
 # Screenshot
 - Live Demo: https://workout-droplist-fe.vercel.app
@@ -56,7 +49,7 @@ npm install
 ![Live Demo](public/Project1Photo.jpg)
 
 # Contact
-- Portfolio: [vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
+- Portfolio: [portfolio-sooty-delta-wdgwgb0mnz.vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
@@ -88,7 +81,7 @@ npm install
 
 ## 2. Usage of `useMemo` from 'react'
 
-<details>
+<details> <summary>Expand</summary>
 
 `useMemo` calls a function when dependencies change, and memoizes (remembers) the result of the function between renders.
 
@@ -102,8 +95,8 @@ npm install
 </details>
 
 ## 3. Understanding Filteration
-
-<details>
+ 
+<details> <summary>Expand</summary>
 
 ```js
 const q = query.trim().toLowerCase();
@@ -132,7 +125,7 @@ const filterWorkout =
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
-<details>
+<details> <summary>Expand</summary>
 
 ```js
 const [exercises, setExercises] = useState([]);
