@@ -6,8 +6,8 @@
 - Back-end: https://github.com/xinhanlim/workoutDroplist-BE
 </details>
 
-
 # Features:
+
 <details>
 - Full **CRUD functionality** for workouts and exercises
 - **Exercise filtering** by muscle group
@@ -19,6 +19,7 @@
 </details>
 
 # Tech Stack:
+
 <details>
 - Frontend: React, Tailwind CSS, Wouter,  JWT-DECODE 
 - Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt, JWT-DECODE
@@ -26,6 +27,7 @@
 </details>
 
 # Getting Started
+
 <details>
 ## Clone the repo
 ```bash
@@ -44,25 +46,24 @@ npm install
 ```
 
 ## Environment variables
+
 - Codespace: VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
-- Render:  VITE_API_URL = https://workoutdroplist-be.onrender.com
+- Render: VITE_API_URL = https://workoutdroplist-be.onrender.com
 
 ## Run Command
+
 - npm run dev
 </details>
 
-# Screenshot 
+# Screenshot
 - Live Demo: https://workout-droplist-fe.vercel.app
+
 ![Web Screenshot](public/Project1Photo.jpg)
 
 # Contact
-Portfolio: https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/
-
-LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
-
-Email: xhxhan00@gmail.com
-
-
+- Portfolio: [vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
+- LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
+- Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
 # LESSON LEARNT - WORKOUT
 
