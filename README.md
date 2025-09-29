@@ -19,6 +19,7 @@
 **Frontend:** React, Wouter, Tailwind CSS, Headless UI, Jotai, Axios, Formik, Yup, React-Toastify, jwt-decode  
 **Backend:** Node.js, Express, MongoDB, JWT, bcrypt, CORS  
 **Dev & Build:** Vite, Nodemon
+
 **Hosting:** Vercel (frontend), Render (backend)
 
 ## Getting Started
