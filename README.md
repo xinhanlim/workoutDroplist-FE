@@ -1,11 +1,14 @@
 # Project Title: Workout Drop List Front End-
 
+<details>
 - Front-end WORKOUT list for personal workout tracking.
 - Live Demo: https://workout-droplist-fe.vercel.app
 - Back-end: https://github.com/xinhanlim/workoutDroplist-BE
+</details>
 
 
 # Features:
+<details>
 - Full **CRUD functionality** for workouts and exercises
 - **Exercise filtering** by muscle group
 - **Workout search bar** for quick access
@@ -13,14 +16,17 @@
 - **Backend RESTful API** built with Express & MongoDB
 - **User authentication** with JWT-based login
 - **User-specific tagging** — workouts and exercises created by a user are securely linked to their account via JWT
+</details>
 
 # Tech Stack:
+<details>
 - Frontend: React, Tailwind CSS, Wouter,  JWT-DECODE 
 - Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt, JWT-DECODE
 - Tools: Axios, Formik + Yup, React-Toastify, Jotai
-
+</details>
 
 # Getting Started
+<details>
 ## Clone the repo
 ```bash
 # HTTPS
@@ -43,11 +49,18 @@ npm install
 
 ## Run Command
 - npm run dev
+</details>
 
 # Screenshot 
-
+- Live Demo: https://workout-droplist-fe.vercel.app
 ![Web Screenshot](public/Project1Photo.jpg)
 
+# Contact
+Portfolio: https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/
+
+LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
+
+Email: xhxhan00@gmail.com
 
 
 
