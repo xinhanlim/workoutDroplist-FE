@@ -39,10 +39,11 @@ npm install
 
 Vite exposes only variables starting with VITE_.
 
-- Codespace:
+- Local Codespace:
 
 create a `.env` file 
-VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
+VITE_API_URL = [<your-codespaces-backend>](https://<your-codespaces-backend>.github.dev)
+Because you'll be given a new codespace link from the back end just replace the < >
 
 - Production (Vercel + Render) – in Vercel → Project → Settings → Environment Variables:
 
