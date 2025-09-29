@@ -19,6 +19,38 @@
 - Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt, JWT-DECODE
 - Tools: Axios, Formik + Yup, React-Toastify, Jotai
 
+
+# Getting Started
+## Clone the repo
+```bash
+# HTTPS
+git clone https://github.com/xinhanlim/workoutDroplist-FE.git
+cd workoutDroplist-FE
+```
+- SSH
+```bash
+git clone git@github.com:xinhanlim/workoutDroplist-FE.git
+cd workoutDroplist-FE
+```
+## Install Dependencies
+```bash
+npm install
+```
+
+## Environment variables
+- Codespace: VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
+- Render:  VITE_API_URL = https://workoutdroplist-be.onrender.com
+
+## Run Command
+- npm run dev
+
+# Screenshot 
+
+![Web Screenshot](public/Project1Photo.jpg)
+
+
+
+
 # LESSON LEARNT - WORKOUT
 
 ## 1. Sorting Positioning of array
