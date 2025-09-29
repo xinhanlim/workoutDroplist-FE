@@ -41,11 +41,14 @@ Vite exposes only variables starting with VITE_.
 
 - Codespace:
 
+create a `.env` file 
 VITE_API_URL = https://didactic-disco-4jwppj4964wrcqp47-3200.app.github.dev
 
 - Production (Vercel + Render) – in Vercel → Project → Settings → Environment Variables:
 
-VITE_API_URL = https://workoutdroplist-be.onrender.com
+Key : VITE_API_URL 
+
+Value: https://workoutdroplist-be.onrender.com
 
 ## Run Command
 - npm run dev
@@ -56,7 +59,7 @@ VITE_API_URL = https://workoutdroplist-be.onrender.com
 ![Live Demo](public/Project1Photo.jpg)
 
 # Contact
-- Portfolio: [portfolio-sooty-delta-wdgwgb0mnz.vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
+- Portfolio Website: [portfolio-sooty-delta-wdgwgb0mnz.vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
