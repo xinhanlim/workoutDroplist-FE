@@ -1,7 +1,8 @@
 # Workout Droplist — Frontend
 - Front-end workout list for personal workout tracking.
-- Live Demo: https://workout-droplist-fe.vercel.app
 - Back-end: https://github.com/xinhanlim/workoutDroplist-BE
+- Live Demo: https://workout-droplist-fe.vercel.app
+
 
 ## Features:
 - Full **CRUD functionality** for workouts and exercises
