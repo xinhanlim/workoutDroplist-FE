@@ -138,7 +138,7 @@ const filterWorkout =
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
-<details><summmary>Expand</summary>
+<details><summary>Expand</summary>
 
 ```js
 const [exercises, setExercises] = useState([]);
