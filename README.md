@@ -35,21 +35,20 @@ cd workoutDroplist-FE
 npm install
 ```
 
-### Environment variables
+### Environment Variables
+Vite exposes only variables starting with `VITE_`.
 
-Vite exposes only variables starting with VITE_.
-
-- Local Codespace:
-
-create a `.env` file 
-VITE_API_URL = [<your-codespaces-backend>](https://<your-codespaces-backend>.github.dev)
-Because you'll be given a new codespace link from the back end just replace the < >
+- **Local (Codespaces)** — create a `.env` file in the frontend root:
+```env
+VITE_API_URL=https://<your-codespaces-backend>.github.dev
+# Codespaces generates a new URL each session — replace the placeholder with your current backend URL.
+```
 
 - Production (Vercel + Render) – in Vercel → Project → Settings → Environment Variables:
-
+```.env
 Key : VITE_API_URL 
-
 Value: https://workoutdroplist-be.onrender.com
+```
 
 ## Run Command
 - npm run dev
@@ -64,11 +63,11 @@ Value: https://workoutdroplist-be.onrender.com
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
-# LESSON LEARNT - WORKOUT
+# Lesson Learnt - WORKOUT
 
 ## 1. Sorting Positioning of array
 
-<details>
+<details> <summary> Expand <summary>
 
 ```js
 
@@ -105,7 +104,7 @@ Value: https://workoutdroplist-be.onrender.com
 
 </details>
 
-## 3. Understanding Filteration
+## 3. Understanding Filtering
  
 <details> <summary>Expand</summary>
 
@@ -132,7 +131,7 @@ const filterWorkout =
 
 </details>
 
-# LESSON LEARNT - EXERCISE
+# Lesson Learnt - EXERCISE
 
 ## 1. Unable to display `Exercises` that the user created and system created
 
@@ -180,7 +179,7 @@ useEffect(() => {
 
 ## 2.Displaying tabs in ExercisePage for filteration of Muscle Groups
 
-<details>
+<details> <summary> Expand <summary>
 
 ```js
 const [isActivitiesGroup, setActivitiesGroup] = useState("all");
