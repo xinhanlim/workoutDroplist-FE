@@ -21,6 +21,7 @@
 **Backend:** Node.js, Express, MongoDB, JWT, bcrypt, CORS  
 
 **Dev & Build:** Vite, Nodemon
+<br>
 **Hosting:** Vercel (frontend), Render (backend)
 
 ## Getting Started
