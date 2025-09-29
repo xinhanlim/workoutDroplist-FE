@@ -16,9 +16,10 @@
 
 ## Tech Stack:
 
-- Frontend: React, Tailwind CSS, Wouter, jwt-decode
-- Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt
-- Tools: Axios, Formik + Yup, React-Toastify, Jotai
+**Frontend:** React, Wouter, Tailwind CSS, Headless UI, Jotai, Axios, Formik, Yup, React-Toastify, jwt-decode  
+**Backend:** Node.js, Express, MongoDB, JWT, bcrypt, CORS  
+**Dev & Build:** Vite, Nodemon
+**Hosting:** Vercel (frontend), Render (backend)
 
 ## Getting Started
 
