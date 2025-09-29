@@ -64,10 +64,9 @@ Value: https://workoutdroplist-be.onrender.com
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
-# Lesson Learnt - WORKOUT
+# Lesson Learned - WORKOUT
 
 ## 1. Sorting Positioning of array
-
 <details><summary>Expand<summary>
 
 ```js
@@ -91,7 +90,6 @@ Value: https://workoutdroplist-be.onrender.com
 </details>
 
 ## 2. Usage of `useMemo` from 'react'
-
 <details><summary>Expand</summary>
 
 `useMemo` calls a function when dependencies change, and memoizes (remembers) the result of the function between renders.
@@ -132,10 +130,9 @@ const filterWorkout =
 
 </details>
 
-# Lesson Learnt - EXERCISE
+# Lesson Learned - EXERCISE
 
 ## 1. Unable to display `Exercises` that the user created and system created
-
 <details><summary>Expand</summary>
 
 ```js
@@ -179,7 +176,6 @@ useEffect(() => {
 </details>
 
 ## 2.Displaying tabs in ExercisePage for filteration of Muscle Groups
-
 <details><summary>Expand<summary>
 
 ```js
