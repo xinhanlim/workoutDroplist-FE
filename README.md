@@ -76,7 +76,7 @@ npm run dev
 
 # Contact
 
-- Portfolio Website: [portfolio-sooty-delta-wdgwgb0mnz.vercel.app](https://portfolio-sooty-delta-wdgwgb0mnz.vercel.app/project/1)
+- Portfolio Website: [xinhanlim.vercel.app](https://xinhanlim.vercel.app/)
 - LinkedIn: [linkedin.com/in/xinhanlim](https://www.linkedin.com/in/xinhanlim/)
 - Email: [xhxhan00@gmail.com](mailto:xhxhan00@gmail.com)
 
