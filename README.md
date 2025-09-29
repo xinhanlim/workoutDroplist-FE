@@ -52,7 +52,9 @@ Value: https://workoutdroplist-be.onrender.com
 ```
 
 ## Run Command
-- npm run dev
+```bash
+npm run dev
+```
 
 # Screenshot
 - Live Demo: https://workout-droplist-fe.vercel.app
@@ -92,7 +94,7 @@ Value: https://workoutdroplist-be.onrender.com
 
 ## 2. Usage of `useMemo` from 'react'
 
-<details>
+<details><summary>Expand</summary>
 
 `useMemo` calls a function when dependencies change, and memoizes (remembers) the result of the function between renders.
 
@@ -107,7 +109,7 @@ Value: https://workoutdroplist-be.onrender.com
 
 ## 3. Understanding Filtering
  
-<details>
+<details><summary>Expand</summary>
 
 ```js
 const q = query.trim().toLowerCase();
@@ -180,7 +182,7 @@ useEffect(() => {
 
 ## 2.Displaying tabs in ExercisePage for filteration of Muscle Groups
 
-<details>
+<details><summary>Expand</summary>
 
 ```js
 const [isActivitiesGroup, setActivitiesGroup] = useState("all");
