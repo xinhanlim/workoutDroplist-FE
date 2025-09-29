@@ -1,3 +1,24 @@
+# Project Title: Workout Drop List Front End-
+
+- Front-end WORKOUT list for personal workout tracking.
+- Live Demo: https://workout-droplist-fe.vercel.app
+- Back-end: https://github.com/xinhanlim/workoutDroplist-BE
+
+
+# Features:
+- Full **CRUD functionality** for workouts and exercises
+- **Exercise filtering** by muscle group
+- **Workout search bar** for quick access
+- **Responsive UI** optimized for mobile web view
+- **Backend RESTful API** built with Express & MongoDB
+- **User authentication** with JWT-based login
+- **User-specific tagging** — workouts and exercises created by a user are securely linked to their account via JWT
+
+# Tech Stack:
+- Frontend: React, Tailwind CSS, Wouter,  JWT-DECODE 
+- Backend: Node.js, Express.js, MongoDB, JWT, Bcrypt, JWT-DECODE
+- Tools: Axios, Formik + Yup, React-Toastify, Jotai
+
 # LESSON LEARNT - WORKOUT
 
 ## 1. Sorting Positioning of array
@@ -37,7 +58,7 @@
   Your app often becomes unresponsive because you're fetching a large amount of data, and having to transform it into a usable format
   The key is to focus on the problem.
 
-</details>  
+</details>
 
 ## 3. Understanding Filteration
 
@@ -47,7 +68,7 @@
 const q = query.trim().toLowerCase();
 const hasText = (t) => (t || "").toLowerCase().includes(q);
 
-const filterWorkout = 
+const filterWorkout =
   : workout.filter((w) => {
       const nameMatch = hasText(w.name);
       const notesMatch = hasText(w.notes);
@@ -56,11 +77,12 @@ const filterWorkout =
       return nameMatch || notesMatch || setsMatch;
     });
 ```
+
 - `const q` is to search text lowercase "eg. squats"
 - `const hastext = (t)...` is to return true / false is q is found inside (t)
 - `const nameMatch = hasText(w.name);` is to find say "Legs Day, the user type leg, it will show up result with legs equivalent
 - `w.sets.some` basically is to go thru each item in sets and check if it's exercise name is matches the search. so say if q = squ , and the exercise has squats,
-it will become true which lead to the final part .
+  it will become true which lead to the final part .
 - returning `namematch` `OR` `notesMatch` `OR` `setsMatch`
 
 </details>
