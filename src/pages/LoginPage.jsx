@@ -27,7 +27,6 @@ export default function LoginPage() {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const response = await axios.post(apiUrl + '/api/users/login', values)
-            startLoadingTimers();
             setLocation('/profile')
             const token = response.data.token;
             setJwt(token);
@@ -37,7 +36,6 @@ export default function LoginPage() {
             toast.warn("Invaild Email or Password")
 
         } finally {
-            clearLoadingTimers();
             formikHelpers.setSubmitting(false);
         }
     }
