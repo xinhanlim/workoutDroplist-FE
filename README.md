@@ -68,6 +68,12 @@ Value: https://workoutdroplist-be.onrender.com
 npm run dev
 ```
 
+## Testing Account
+```bash
+email:testing@123.com
+password:testing123
+```
+
 # Screenshot
 
 - Live Demo: https://workout-droplist-fe.vercel.app
