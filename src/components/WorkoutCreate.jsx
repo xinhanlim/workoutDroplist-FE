@@ -49,7 +49,6 @@ export default function WorkoutDialog({ open, onClose, exercises = [] }) {
                     }
                 }
             )
-            console.log(values)
             toast.success('Workout Created Successfully');
             formikHelpers.resetForm();
             onClose();

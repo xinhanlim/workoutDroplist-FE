@@ -27,15 +27,13 @@ export default function WorkoutPage() {
         const apiUrl = import.meta.env.VITE_API_URL;
         const prev = workout;
         setWorkout(xs => xs.filter(x => x._id !== id));
-        console.log("Current Array Of Exercise: ", prev)
 
         try {
             const token = getJwt();
             const result = await axios.delete(apiUrl + `/api/users/workout/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log("workoutId: ", id)
-            console.log("Result", result)
+
             toast.success('Delete Succesfully');
             return result
         } catch (e) {

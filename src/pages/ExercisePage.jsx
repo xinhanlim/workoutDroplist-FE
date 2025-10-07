@@ -30,15 +30,12 @@ export default function ExercisePage() {
         const apiUrl = import.meta.env.VITE_API_URL;
         const prev = exercises;
         setExercises(xs => xs.filter(x => x._id !== id));
-        console.log("Current Array Of Exercise: ", prev)
 
         try {
             const token = getJwt();
             const result = await axios.delete(apiUrl + `/api/users/exercise/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            console.log("ExerciseId: ", id)
-            console.log("Result", result)
             toast.success('Delete Succesfully');
             return result
         } catch (e) {
@@ -52,7 +49,6 @@ export default function ExercisePage() {
         try {
             const apiUrl = import.meta.env.VITE_API_URL;
             const token = getJwt();
-            console.log(token);
             const response = await axios.get(apiUrl + '/api/users/exercise',
                 {
                     headers: {
